@@ -6,7 +6,7 @@
 		<meta content="width=device-width, initial-scale=1.0" name="viewport">
 		<meta content="Vinh Tran" name="keywords">
 		<meta content="Vinh Tran" name="description">
-		<link href="assets/favicon.ico" rel="icon">
+		<link href="img/favicon.ico" rel="icon">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -17,10 +17,21 @@
 		<script>
 			document.getElementsByTagName("html")[0].className += " js";
 		</script>
-		<link rel="stylesheet" href="timeline/css/timeline.css">
+		<link rel="stylesheet" href="assets/css/timeline.css">
 	</head>
-	<!-- Navbar-->
-	<body data-spy="scroll" data-target=".navbar" data-offset="51">
+	<!-- Website Page -->
+	<body data-spy="scroll" data-target=".navbar" data-offset="51" style="overflow: hidden;">
+		<!-- Load Screen -->
+		<div id="loader">
+			<div class="dots-container">
+				<div class="dots"></div>
+				<div class="dots"></div>
+				<div class="dots"></div>
+				<div class="dots"></div>
+				<div class="dots"></div>
+			  </div>
+		</div>
+		<!-- Navbar -->
 		<nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
 			<a href="https://vtran.org/" class="navbar-brand ml-lg-3">
 				<h1 class="m-0 display-5">
@@ -54,26 +65,26 @@
 			</div>
 		</div>
 		<!-- Homescreen -->
-		<div class="container-fluid d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh; background-image: url('assets/background.gif'); background-size: cover; background-position: center; background-attachment: fixed;">
-			<div class="container">
+		<div class="container-fluid d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh; background-image: url('img/background.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+			<div class="container" style="display: none;">
 				<div class="row align-items-center">
 					<div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0" style="animation: slideRight 1s ease-out;">
-						<img class="img-fluid w-100 rounded-circle shadow-sm" src="assets/profile.jpg" alt="">
+						<img class="img-fluid w-100 rounded-circle shadow-sm" src="img/profile.jpg" alt="">
 					</div>
 					<div class="col-lg-7 text-center text-lg-left">
 						<div style="animation: slideDown 1s ease-out;">
 							<h3 class="text-white font-weight-normal mb-3">I'm</h3>
 							<h1 class="display-3 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">Vinh Tran</h1>
 							<h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
-							<div class="typed-text d-none">Web Developer, UI/UX Designer, Software Engineer</div>	
+							<div class="typed-text d-none">Web Developer, UI/UX Designer, Software Engineer</div>
 						</div>
 						<div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5" style="animation: slideUp 1s ease-out;">
-							<a href="assets/resume.pdf" class="btn btn-outline-light mr-5" target="_blank">View Resume</a>
-                            <button type="button" class="btn-play" data-src="assets/music.mp3">
-                                <span class="d-flex align-items-center">
-                                    <i class="fas fa-play" style="color: #0bceaf;"></i>
-                                </span>
-                            </button>
+							<a href="img/resume.pdf" class="btn btn-outline-light mr-5" target="_blank">View Resume</a>
+							<button type="button" class="btn-play" data-src="img/music.mp3">
+								<span class="d-flex align-items-center">
+									<i class="fas fa-play" style="color: #0bceaf;"></i>
+								</span>
+							</button>
 							<h5 class="font-weight-normal text-white m-0 ml-4 d-none d-sm-block" id="musicControl" onclick="toggleBackgroundMusic()">Play Music</h5>
 						</div>
 					</div>
@@ -88,176 +99,217 @@
 					<h1 class="position-absolute text-uppercase text-primary">About Me</h1>
 				</div>
 				<!-- Timeline -->
-            <section class="cd-h-timeline js-cd-h-timeline margin-bottom-md">
-              <div class="cd-h-timeline__container container">
-                <div class="cd-h-timeline__dates">
-                  <div class="cd-h-timeline__line">
-                    <!-- Dates -->
-                    <ol>
-                      <li><a href="#0" data-date="01/01/1990" class="cd-h-timeline__date">5 Sep</a></li>
-                      <li><a href="#0" data-date="01/01/1991" class="cd-h-timeline__date">2 Nov</a></li>
-                      <li><a href="#0" data-date="01/01/1992" class="cd-h-timeline__date">21 Jun</a></li>
-                      <li><a href="#0" data-date="01/01/1993" class="cd-h-timeline__date">9 Sep</a></li>
-                      <li><a href="#0" data-date="01/01/1994" class="cd-h-timeline__date">24 Sep</a></li>
-                      <li><a href="#0" data-date="01/01/1995" class="cd-h-timeline__date">21 Mar</a></li>
-                      <li><a href="#0" data-date="01/01/1996" class="cd-h-timeline__date">7 Jun</a></li>
-                      <li><a href="#0" data-date="01/01/1997" class="cd-h-timeline__date">27 Sep</a></li>
-                      <li><a href="#0" data-date="01/01/1998" class="cd-h-timeline__date">4 Oct</a></li>
-                      <li><a href="#0" data-date="01/01/1999" class="cd-h-timeline__date">10 Oct</a></li>
-                      <li><a href="#0" data-date="01/01/2000" class="cd-h-timeline__date cd-h-timeline__date--selected">9 Dec</a></li>
-                    </ol>
-                    <!-- Dates -->
-                    <span class="cd-h-timeline__filling-line" aria-hidden="true"></span>
-                  </div>
-                </div>
-                <!-- Timeline Buttons -->
-                <ul>
-                  <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive">Prev</a></li>
-                  <li><a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next">Next</a></li>
-                </ul>
-              </div>
-              <!-- Timeline Events -->
-              <div class="cd-h-timeline__events">
-                <ol>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">Boston Latin</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>September 5th, 2019</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>My academic journey began at Boston Latin School, ranked among the top 25 schools in the nation at the time of my entry in 2019. BLS provided me an education rooted in tradition and academic excellence. However, the onset of the COVID-19 pandemic disrupted the conventional system of learning, challenging me to adapt and navigate the evolving educational landscape.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">Recycling Committee</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>November 2nd, 2020</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>BLS RC promotes environmental sustainability within Boston Latin. I actively participated in recycling efforts as a dedicated member of the Recycling Committee, in the hopes of reducing our environmental footprint. I contributed by collecting, sorting, and recycling various materials within our school, ensuring that recyclable items were properly disposed of and repurposed.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">A Helping Tutor</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>June 21st, 2021</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>During the summer, I dedicated my spare time to making a positive impact in a young student's life by providing tutoring in both mathematics and English. It was an incredibly rewarding experience, as I witnessed the child's confidence and understanding of these subjects grow steadily throughout our sessions. My daily responsibilities during this time were to plan and manage engaging lessons.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">High School</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>September 9th, 2021</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>Reentering high school after COVID posed a significant challenge for me, as I initially struggled with readjustment. However, recognizing the need for self-improvement, I dedicated myself to personal development. Since then, I actively sought growth by joining various clubs, including badminton, volleyball, robotics, and recycling, which fostered my well-being and academic pursuits.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">Badminton Club</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>September 24th, 2022</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>BLS BC is a continuation of the original Badminton Club. The officers (including me) of BLS BC were members of the original back when they were in Class VI. However, that past club has been disbanded due to all the officers graduating. Thus, in 2022, we decided to come together and revive Badminton Club, hoping that it will grow and foster a great community at BLS.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">Volleyball</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>March 21st, 2023</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>In my sophomore year, I decided to explore my athletic interests by joining the school's volleyball team. Engaging in volleyball not only allowed me to develop coordination but also provided a unique way to socialize with students who shared a passion for the sport. Balancing my involvement required a daily commitment beyond school hours, that necessitated proper time management.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">Digital Ready</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>June 7th, 2023</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>During my time at Digital Ready, I built a strong foundation in IT services, Python programming, and UI/UX design. As I sharpened my skills, I discovered how to effectively blend these technologies to create practical and captivating websites. Through this transformative experience, my enthusiasm for combining design and software was further solidified.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">BLS Hackclub</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>September 27th, 2023</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>I am a founding member, and Vice-President of BLS Hack Club, associated with the international Hack Club organization. It is open to all students in Boston Latin School and aims to create a diverse coding community by providing educational resources for learning to code and a platform for the global Hack Club association. We hope to gather like-minded individuals and help them stand out in the digital industry.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">Web Development Club</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>October 4th, 2023</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>The process while developing my portfolio website compelled me to share my passion to other students. Realizing that there wasn’t a strong community for software at BLS, I took initiative to establish a club aimed at generating interest for those who share similar hobbies. We extend beyond merely crafting websites and delve into the intricacies of how the web functions.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">Artists for Humanity</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>October 10th, 2023</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>AFH is an organization that aims to provide the youth with resources and opportunities for a career in the art industry. During my time working here, I collaborated with peers on implementing creative technologies for both client and personal projects. Under the guidance of mentors, I was able to enhance my expertise on a variety of skills, ranging from programming to 3D applications in software.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                  <li class="cd-h-timeline__event cd-h-timeline__event--selected text-component">
-                    <div class="cd-h-timeline__event-content container">
-                      <h2 class="cd-h-timeline__event-title">Homeless Outreach Ministry & Engagement</h2>
-                      <em class="cd-h-timeline__event-date" style="font-style: normal;">
-                        <strong>December 9th, 2023</strong>
-                      </em>
-                      <p class="cd-h-timeline__event-description color-contrast-medium">
-                        <br>The opportunity to volunteer with HOME, organized by Park Street Church, was a fulfilling experience. I actively contributed to preparing meals, providing clothing, and engaging in meaningful conversations with the homeless in Boston. My dedication extended beyond addressing immediate physical needs, and fostered meaningful connections.
-                      </p>
-                    </div>
-                  </li>
-                  <!-- Date Block -->
-                </ol>
-              </div>
-            </section>
-				<script src="timeline/js/util.js"></script>
-				<script src="timeline/js/swipe-content.js"></script>
-				<script src="timeline/js/timeline.js"></script>
+				<section class="cd-h-timeline js-cd-h-timeline margin-bottom-md">
+					<div class="cd-h-timeline__container container">
+						<div class="cd-h-timeline__dates">
+							<div class="cd-h-timeline__line">
+								<!-- Dates -->
+								<ol>
+									<li>
+										<a href="#0" data-date="01/01/1990" class="cd-h-timeline__date">5 Sep</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/1991" class="cd-h-timeline__date">2 Nov</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/1992" class="cd-h-timeline__date">21 Jun</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/1993" class="cd-h-timeline__date">9 Sep</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/1994" class="cd-h-timeline__date">24 Sep</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/1995" class="cd-h-timeline__date">21 Mar</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/1996" class="cd-h-timeline__date">7 Jun</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/1997" class="cd-h-timeline__date">27 Sep</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/1998" class="cd-h-timeline__date">4 Oct</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/1999" class="cd-h-timeline__date">10 Oct</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/2000" class="cd-h-timeline__date">15 Dec</a>
+									</li>
+									<li>
+										<a href="#0" data-date="01/01/2001" class="cd-h-timeline__date cd-h-timeline__date--selected">4 May</a>
+									</li>
+								</ol>
+								<!-- Dates -->
+								<span class="cd-h-timeline__filling-line" aria-hidden="true"></span>
+							</div>
+						</div>
+						<!-- Timeline Buttons -->
+						<ul>
+							<li>
+								<a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive">Prev</a>
+							</li>
+							<li>
+								<a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next">Next</a>
+							</li>
+						</ul>
+					</div>
+					<!-- Timeline Events -->
+					<div class="cd-h-timeline__events">
+						<ol>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">Boston Latin</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>September 5th, 2019</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>My academic journey began at Boston Latin School, ranked among the top 25 schools in the nation at the time of my entry in 2019. BLS provided me an education rooted in tradition and academic excellence. However, the onset of the COVID-19 pandemic disrupted the conventional system of learning, challenging me to adapt and navigate the evolving educational landscape.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">Recycling Committee</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>November 2nd, 2020</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>BLS RC promotes environmental sustainability within Boston Latin. I actively participated in recycling efforts as a dedicated member of the Recycling Committee, in the hopes of reducing our environmental footprint. I contributed by collecting, sorting, and recycling various materials within our school, ensuring that recyclable items were properly disposed of and repurposed.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">A Helping Tutor</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>June 21st, 2021</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>During the summer, I dedicated my spare time to making a positive impact in a young student's life by providing tutoring in both mathematics and English. It was an incredibly rewarding experience, as I witnessed the child's confidence and understanding of these subjects grow steadily throughout our sessions. My daily responsibilities during this time were to plan and manage engaging lessons.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">High School</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>September 9th, 2021</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>Reentering high school after COVID posed a significant challenge for me, as I initially struggled with readjustment. However, recognizing the need for self-improvement, I dedicated myself to personal development. Since then, I actively sought growth by joining various clubs, including badminton, volleyball, robotics, and recycling, which fostered my well-being and academic pursuits.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">Badminton Club</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>September 24th, 2022</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>BLS BC is a continuation of the original Badminton Club. The officers (including me) of BLS BC were members of the original back when they were in Class VI. However, that past club has been disbanded due to all the officers graduating. Thus, in 2022, we decided to come together and revive Badminton Club, hoping that it will grow and foster a great community at BLS.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">Volleyball</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>March 21st, 2023</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>In my sophomore year, I decided to explore my athletic interests by joining the school's volleyball team. Engaging in volleyball not only allowed me to develop coordination but also provided a unique way to socialize with students who shared a passion for the sport. Balancing my involvement required a daily commitment beyond school hours, that necessitated proper time management.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">Digital Ready</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>June 7th, 2023</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>During my time at Digital Ready, I built a strong foundation in IT services, Python programming, and UI/UX design. As I sharpened my skills, I discovered how to effectively blend these technologies to create practical and captivating websites. Through this transformative experience, my enthusiasm for combining design and software was further solidified.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">BLS Hackclub</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>September 27th, 2023</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>I am a founding member, and Vice-President of BLS Hack Club, associated with the international Hack Club organization. It is open to all students in Boston Latin School and aims to create a diverse coding community by providing educational resources for learning to code and a platform for the global Hack Club association. We hope to gather like-minded individuals and help them stand out in the digital industry.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">Web Development Club</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>October 4th, 2023</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>The process while developing my portfolio website compelled me to share my passion to other students. Realizing that there wasn’t a strong community for software at BLS, I took initiative to establish a club aimed at generating interest for those who share similar hobbies. We extend beyond merely crafting websites and delve into the intricacies of how the web functions.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">Artists for Humanity</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>October 10th, 2023</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>AFH is an organization that aims to provide the youth with resources and opportunities for a career in the art industry. During my time working here, I collaborated with peers on implementing creative technologies for both client and personal projects. Under the guidance of mentors, I was able to enhance my expertise on a variety of skills, ranging from programming to 3D applications in software.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">Competitive Programming</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>December 15th, 2023</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>In December, I participated in my first competitive programming contest hosted by USACO. Though initially challenging, the experience provided valuable insights into my strengths and areas for improvement. Following this, I engaged in additional contests such as ACSL and LeetCode. For a detailed record of my contributions across these events, please refer to the provided document (<a href="https://docs.google.com/document/d/1W_YIxy59yfQL21mWXdSnXzsIw4t6rED0K_rQU8RQW9I/edit?usp=sharing" target="_blank">Learn More</a>).
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+							<li class="cd-h-timeline__event cd-h-timeline__event--selected text-component">
+								<div class="cd-h-timeline__event-content container">
+									<h2 class="cd-h-timeline__event-title">Homeless Outreach Ministry & Engagement</h2>
+									<em class="cd-h-timeline__event-date" style="font-style: normal;">
+										<strong>May 18th, 2024</strong>
+									</em>
+									<p class="cd-h-timeline__event-description color-contrast-medium">
+										<br>The opportunity to volunteer with HOME, organized by Park Street Church, was a fulfilling experience. I actively contributed to preparing meals, providing clothing, and engaging in meaningful conversations with the homeless in Boston. My dedication extended beyond addressing immediate physical needs, and fostered meaningful connections.
+									</p>
+								</div>
+							</li>
+							<!-- Date Block -->
+						</ol>
+					</div>
+				</section>
+				<script src="assets/js/util.js"></script>
+				<script src="assets/js/swipe-content.js"></script>
+				<script src="assets/js/timeline.js"></script>
 			</div>
 		</div>
 		<!-- Experience Section -->
@@ -317,6 +369,28 @@
 								<div class="card border-hover-primary hover-scale">
 									<div class="card-body">
 										<div>
+											<a href="https://github.com/v-iinh/pirate-shore" target="_blank" style="font-size: 45px; justify-content: center;">
+												<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="25 47 260 260" preserveAspectRatio="xMidYMid meet">
+													<g class="s0" transform="translate(0,300) scale(0.1, -0.1)" fill="#0bceaf" stroke="none">
+														<path d="M1664 2260 c-38 -61 -85 -136 -105 -168 -68 -106 -532 -847 -556 -887 -13 -22 -44 -71 -68 -110 l-44 -70 47 -6 c26 -3 85 -9 132 -13 47 -4 126 -11 175 -16 50 -5 124 -12 165 -16 41 -4 131 -12 200 -18 l125 -11 3 -37 c2 -26 -1 -38 -10 -38 -7 0 -134 11 -283 25 -598 55 -660 66 -788 128 l-68 34 6 -26 c14 -55 66 -151 83 -152 9 0 28 -2 42 -4 14 -1 72 -6 130 -9 335 -20 888 -56 1260 -82 247 -17 292 -19 296 -13 20 33 -39 43 -436 75 -88 7 -90 8 -90 50 l0 36 48 -6 c96 -12 284 -27 287 -24 2 2 -103 227 -232 501 -130 273 -238 496 -238 494 -1 -1 1 -36 6 -77 4 -41 10 -106 13 -145 3 -38 10 -113 15 -165 5 -52 13 -131 16 -175 4 -44 8 -91 10 -105 2 -14 6 -61 10 -105 3 -44 8 -97 11 -117 5 -30 2 -38 -9 -38 -10 0 -21 19 -31 53 -113 395 -140 948 -62 1282 8 33 13 61 12 62 -1 2 -34 -47 -72 -107z m174 -1362 c3 -35 1 -38 -22 -38 -24 0 -26 4 -26 41 0 36 2 40 23 37 18 -2 23 -10 25 -40z M700 829 c0 -15 155 -150 209 -184 l58 -35 584 1 c585 1 622 2 757 14 61 6 75 10 88 30 18 28 15 67 -6 70 -8 1 -71 6 -140 9 -69 4 -138 9 -155 11 -16 2 -84 6 -150 10 -66 3 -140 8 -165 10 -25 2 -100 7 -167 10 -68 4 -301 19 -518 34 -217 15 -395 24 -395 20z"/>
+													</g>
+												</svg>
+											</a>
+										</div>
+										<a href="https://github.com/v-iinh/pirate-shore" target="_blank" class="font-weight-bold mb-3">
+											<h6 style="text-decoration: underline;">
+												<strong>Pirate Shore</strong>
+											</h6>
+										</a>
+										<p class="text-muted mb-0"> Inspired by The Pirate Bay and other open source projects making film accessible, I developed a free streaming service as well. The site utilizes movie database APIs to get data, and React.js for a seamless user experience. </p>
+									</div>
+								</div>
+							</div>
+							<!-- Content Block -->
+							<div class="col my-3">
+								<div class="card border-hover-primary hover-scale">
+									<div class="card-body">
+										<div>
 											<a href="https://v-iinh.github.io/sound-mania/" target="_blank" style="font-size: 45px; justify-content: center;">
 												<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="-57 0 365 365" preserveAspectRatio="xMidYMid meet">
 													<g class="s0" transform="translate(0, 250) scale(0.05, -0.05)" fill="#0bceaf" stroke="none">
@@ -357,6 +431,42 @@
 								<div class="card border-hover-primary hover-scale">
 									<div class="card-body">
 										<div>
+											<a href="https://github.com/v-iinh/coin-dash/" target="_blank" style="font-size: 45px;">
+												<i class="fas fa-coins"></i>
+											</a>
+										</div>
+										<a href="https://github.com/v-iinh/coin-dash/" target="_blank" class="font-weight-bold mb-3">
+											<h6 style="text-decoration: underline;">
+												<strong>Coin Dash</strong>
+											</h6>
+										</a>
+										<p class="text-muted mb-0"> Blockchain technology is a growing industry as the world continues to dive into a digital revolution. Using the CoinGecko API, users are able to view data for Crypto and NFTs, or search for them as well all within Coin Dash. </p>
+									</div>
+								</div>
+							</div>
+							<!-- Content Block -->
+							<div class="col my-3">
+								<div class="card border-hover-primary hover-scale">
+									<div class="card-body">
+										<div>
+											<a href="https://github.com/v-iinh/daily-quill" target="_blank" style="font-size: 45px;">
+												<i class="fas fa-feather-alt"></i>
+											</a>
+										</div>
+										<a href="https://github.com/v-iinh/daily-quill" target="_blank" class="font-weight-bold mb-3">
+											<h6 style="text-decoration: underline;">
+												<strong>The Daily Quill</strong>
+											</h6>
+										</a>
+										<p class="text-muted mb-0"> This page is powered by the News API, providing daily updates, complemented by a functional search system. Built with React, its components and layouts prioritize intuitive design, integrating proper UI & UX practices. </p>
+									</div>
+								</div>
+							</div>
+							<!-- Content Block -->
+							<div class="col my-3">
+								<div class="card border-hover-primary hover-scale">
+									<div class="card-body">
+										<div>
 											<a href="https://github.com/v-iinh/claustrophobia" target="_blank" style="font-size: 45px;">
 												<i class="fas fa-cube" style="scale: .9;"></i>
 											</a>
@@ -372,25 +482,83 @@
 							</div>
 							<!-- Content Block -->
 							<div class="col my-3">
-							  <div class="card border-hover-primary hover-scale">
-							    <div class="card-body">
-							      <div>
-							        <a href="https://classchatsplus.netlify.app/" target="_blank" style="font-size: 45px; justify-content: center;">
-							          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="145 235 600 600" preserveAspectRatio="xMidYMid meet">
-							            <g class="s0" transform="translate(0,921) scale(0.1,-0.1)" fill="#0bceaf" stroke="none">
-							              <path d="M3215 6112 c-129 -10 -392 -75 -440 -108 -11 -8 -28 -14 -37 -14 -29 0 -190 -85 -283 -148 -90 -62 -213 -162 -249 -201 -96 -108 -131 -149 -144 -171 -9 -14 -24 -34 -34 -46 -32 -37 -147 -236 -154 -268 -4 -17 -12 -40 -20 -51 -24 -38 -73 -210 -96 -335 -39 -215 -30 -485 24 -690 11 -41 23 -90 28 -108 4 -18 12 -38 18 -45 5 -7 13 -27 17 -45 9 -43 107 -242 148 -301 96 -139 259 -316 347 -379 25 -18 67 -48 94 -68 63 -47 160 -105 216 -131 60 -28 190 -80 215 -86 11 -3 52 -14 90 -25 145 -42 435 -63 585 -43 199 27 289 48 415 97 77 29 225 105 261 133 14 11 32 21 38 21 22 0 86 61 86 82 0 11 -15 37 -32 58 -18 21 -46 57 -63 81 -16 23 -45 62 -63 86 -18 25 -38 54 -43 66 -5 12 -25 49 -44 82 -63 108 -104 208 -138 335 -7 28 -18 46 -29 48 -9 2 -52 -24 -94 -57 -42 -34 -80 -61 -85 -61 -4 0 -25 -10 -46 -22 -76 -45 -180 -74 -298 -84 -62 -4 -100 -1 -170 15 -100 23 -183 52 -223 79 -15 10 -49 33 -77 52 -143 95 -256 251 -303 420 -37 131 -23 356 29 482 42 101 89 166 198 271 93 89 152 127 259 168 124 47 362 50 487 6 62 -21 89 -34 180 -85 13 -6 46 -33 74 -58 28 -25 58 -44 68 -42 12 2 25 30 44 93 28 95 127 312 173 380 14 22 32 48 39 59 6 10 45 63 85 117 39 53 72 104 72 111 0 31 -67 79 -225 163 -97 51 -305 117 -470 150 -72 14 -341 25 -430 17z M5574 6094 c-65 -11 -128 -23 -139 -26 -150 -45 -233 -73 -246 -84 -8 -8 -24 -14 -34 -14 -26 0 -176 -84 -251 -141 -36 -27 -67 -49 -70 -49 -18 0 -252 -233 -288 -286 -44 -65 -74 -107 -102 -144 -36 -48 -137 -261 -162 -340 -111 -361 -108 -770 8 -1065 4 -11 13 -38 19 -60 23 -88 142 -306 190 -349 11 -11 21 -24 21 -29 0 -12 84 -108 172 -199 56 -56 89 -84 202 -171 52 -39 162 -104 222 -131 32 -15 73 -33 89 -41 69 -32 247 -84 345 -101 78 -14 153 -19 290 -19 217 1 315 15 523 77 82 24 331 149 368 184 14 13 30 24 36 24 25 0 225 171 289 247 64 75 104 129 104 141 0 11 -78 62 -169 110 -56 30 -177 100 -331 192 -113 68 -244 140 -253 140 -4 0 -38 -27 -78 -60 -87 -73 -197 -128 -329 -166 -84 -25 -242 -25 -320 -1 -30 10 -71 22 -90 29 -132 41 -278 151 -375 282 -48 65 -59 85 -95 171 -22 52 -50 205 -50 271 0 119 58 313 116 389 13 18 24 36 24 41 0 13 156 165 199 194 126 86 270 130 427 130 203 0 375 -66 517 -199 l48 -45 42 23 c47 24 143 79 197 111 77 46 137 81 185 106 28 14 57 31 65 38 8 7 49 30 90 51 41 21 86 46 100 55 14 10 37 25 53 34 15 9 27 21 27 27 0 18 -103 149 -157 200 -26 25 -86 76 -133 112 -47 37 -98 77 -115 91 -45 35 -208 120 -310 160 -89 35 -230 73 -355 95 -116 21 -380 19 -516 -5z"/>
-							            </g>
-							          </svg>
-							        </a>
-							      </div>
-							      <a href="https://classchatsplus.netlify.app/" target="_blank" class="font-weight-bold mb-3">
-							        <h6 style="text-decoration: underline;">
-							          <strong>ClassChats+</strong>
-							        </h6>
-							      </a>
-							      <p class="text-muted mb-0"> CC+ is a social network made with Firebase & Vanilla JS, designed with hopes to establish a strong student community in the Boston area. The app also includes a functional moderation system and navigable UI. </p>
-							    </div>
-							  </div>
+								<div class="card border-hover-primary hover-scale">
+									<div class="card-body">
+										<div>
+											<a href="https://ilykcaj.github.io/wonderland20" target="_blank" style="font-size: 45px;">
+												<i class="fas fa-building"></i>
+											</a>
+										</div>
+										<a href="https://ilykcaj.github.io/wonderland20" target="_blank" class="font-weight-bold mb-3">
+											<h6 style="text-decoration: underline;">
+												<strong>STEM Garden Defense</strong>
+											</h6>
+										</a>
+										<p class="text-muted mb-0"> For the Wonderland Hackathon in 2024, I designed and developed a prototype TD game. This was made in a team of 4, and was showcased in the event. The custom assets and storybuilding also demonstrates our creativity. </p>
+									</div>
+								</div>
+							</div>
+							<!-- Content Block -->
+							<div class="col my-3">
+								<div class="card border-hover-primary hover-scale">
+									<div class="card-body">
+										<div>
+											<a href="https://v-iinh.github.io/editify/" target="_blank" style="font-size: 45px;">
+												<i class="far fa-folder"></i>
+											</a>
+										</div>
+										<a href="https://v-iinh.github.io/editify/" target="_blank" class="font-weight-bold mb-3">
+											<h6 style="text-decoration: underline;">
+												<strong>Editify</strong>
+											</h6>
+										</a>
+										<p class="text-muted mb-0"> Editify was made with the intention of becoming a universal file editor. The web application allows users to edit and save their files online. As of the moment, the site is made in Vanilla JS, with future improvements to come. </p>
+									</div>
+								</div>
+							</div>
+							<!-- Content Block -->
+							<div class="col my-3">
+								<div class="card border-hover-primary hover-scale">
+									<div class="card-body">
+										<div>
+											<a href="https://classchatsplus.netlify.app/" target="_blank" style="font-size: 45px; justify-content: center;">
+												<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="145 235 600 600" preserveAspectRatio="xMidYMid meet">
+													<g class="s0" transform="translate(0,921) scale(0.1,-0.1)" fill="#0bceaf" stroke="none">
+														<path d="M3215 6112 c-129 -10 -392 -75 -440 -108 -11 -8 -28 -14 -37 -14 -29 0 -190 -85 -283 -148 -90 -62 -213 -162 -249 -201 -96 -108 -131 -149 -144 -171 -9 -14 -24 -34 -34 -46 -32 -37 -147 -236 -154 -268 -4 -17 -12 -40 -20 -51 -24 -38 -73 -210 -96 -335 -39 -215 -30 -485 24 -690 11 -41 23 -90 28 -108 4 -18 12 -38 18 -45 5 -7 13 -27 17 -45 9 -43 107 -242 148 -301 96 -139 259 -316 347 -379 25 -18 67 -48 94 -68 63 -47 160 -105 216 -131 60 -28 190 -80 215 -86 11 -3 52 -14 90 -25 145 -42 435 -63 585 -43 199 27 289 48 415 97 77 29 225 105 261 133 14 11 32 21 38 21 22 0 86 61 86 82 0 11 -15 37 -32 58 -18 21 -46 57 -63 81 -16 23 -45 62 -63 86 -18 25 -38 54 -43 66 -5 12 -25 49 -44 82 -63 108 -104 208 -138 335 -7 28 -18 46 -29 48 -9 2 -52 -24 -94 -57 -42 -34 -80 -61 -85 -61 -4 0 -25 -10 -46 -22 -76 -45 -180 -74 -298 -84 -62 -4 -100 -1 -170 15 -100 23 -183 52 -223 79 -15 10 -49 33 -77 52 -143 95 -256 251 -303 420 -37 131 -23 356 29 482 42 101 89 166 198 271 93 89 152 127 259 168 124 47 362 50 487 6 62 -21 89 -34 180 -85 13 -6 46 -33 74 -58 28 -25 58 -44 68 -42 12 2 25 30 44 93 28 95 127 312 173 380 14 22 32 48 39 59 6 10 45 63 85 117 39 53 72 104 72 111 0 31 -67 79 -225 163 -97 51 -305 117 -470 150 -72 14 -341 25 -430 17z M5574 6094 c-65 -11 -128 -23 -139 -26 -150 -45 -233 -73 -246 -84 -8 -8 -24 -14 -34 -14 -26 0 -176 -84 -251 -141 -36 -27 -67 -49 -70 -49 -18 0 -252 -233 -288 -286 -44 -65 -74 -107 -102 -144 -36 -48 -137 -261 -162 -340 -111 -361 -108 -770 8 -1065 4 -11 13 -38 19 -60 23 -88 142 -306 190 -349 11 -11 21 -24 21 -29 0 -12 84 -108 172 -199 56 -56 89 -84 202 -171 52 -39 162 -104 222 -131 32 -15 73 -33 89 -41 69 -32 247 -84 345 -101 78 -14 153 -19 290 -19 217 1 315 15 523 77 82 24 331 149 368 184 14 13 30 24 36 24 25 0 225 171 289 247 64 75 104 129 104 141 0 11 -78 62 -169 110 -56 30 -177 100 -331 192 -113 68 -244 140 -253 140 -4 0 -38 -27 -78 -60 -87 -73 -197 -128 -329 -166 -84 -25 -242 -25 -320 -1 -30 10 -71 22 -90 29 -132 41 -278 151 -375 282 -48 65 -59 85 -95 171 -22 52 -50 205 -50 271 0 119 58 313 116 389 13 18 24 36 24 41 0 13 156 165 199 194 126 86 270 130 427 130 203 0 375 -66 517 -199 l48 -45 42 23 c47 24 143 79 197 111 77 46 137 81 185 106 28 14 57 31 65 38 8 7 49 30 90 51 41 21 86 46 100 55 14 10 37 25 53 34 15 9 27 21 27 27 0 18 -103 149 -157 200 -26 25 -86 76 -133 112 -47 37 -98 77 -115 91 -45 35 -208 120 -310 160 -89 35 -230 73 -355 95 -116 21 -380 19 -516 -5z" />
+													</g>
+												</svg>
+											</a>
+										</div>
+										<a href="https://classchatsplus.netlify.app/" target="_blank" class="font-weight-bold mb-3">
+											<h6 style="text-decoration: underline;">
+												<strong>ClassChats+</strong>
+											</h6>
+										</a>
+										<p class="text-muted mb-0"> CC+ is a social network made with Firebase & Vanilla JS, designed with hopes to establish a strong student community in the Boston area. The app also includes a functional moderation system and navigable UI. </p>
+									</div>
+								</div>
+							</div>
+							<!-- Content Block -->
+							<div class="col my-3">
+								<div class="card border-hover-primary hover-scale">
+									<div class="card-body">
+										<div>
+											<a href="https://github.com/v-iinh/chrominance" target="_blank" style="font-size: 45px; justify-content: center;">
+												<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="-45 -20 400 400" preserveAspectRatio="xMidYMid meet">
+													<g transform="translate(0,299) scale(0.1,-0.1)">
+														<path fill-rule="evenodd" class="s0" d="M1267 2889 c-569 -100 -1028 -535 -1147 -1086 -46 -214 -46 -414 0 -626 91 -417 383 -783 774 -967 151 -72 139 -72 180 7 87 165 231 294 575 512 221 140 293 191 353 251 84 84 105 148 71 213 l-17 32 -9 -40 c-7 -29 -27 -56 -69 -98 -62 -61 -173 -120 -513 -272 -264 -119 -432 -220 -533 -322 -18 -18 -38 -33 -44 -33 -18 0 -129 83 -206 155 -176 163 -304 393 -357 640 -21 98 -25 326 -7 435 51 305 237 599 494 782 201 144 439 218 699 218 330 0 622 -122 853 -358 96 -98 152 -173 209 -281 136 -256 172 -549 105 -851 l-12 -55 -12 135 c-20 233 -66 358 -174 474 -53 56 -80 75 -164 116 -108 51 -183 74 -391 115 -133 27 -185 48 -387 157 -87 47 -163 59 -244 39 -36 -9 -63 -9 -118 0 -122 21 -202 -5 -253 -79 -30 -46 -47 -132 -38 -201 l8 -56 13 39 c21 58 49 99 83 119 36 21 36 23 15 -56 -15 -60 -14 -129 4 -178 10 -26 14 -20 32 43 7 26 23 59 36 73 49 53 103 26 253 -128 142 -145 230 -219 302 -252 57 -26 126 -34 169 -20 22 7 23 6 11 -9 -21 -25 -130 -100 -202 -139 -126 -69 -229 -83 -290 -38 -24 18 -28 18 -33 5 -10 -27 14 -96 44 -126 l28 -28 -23 0 c-13 0 -36 5 -52 11 -35 13 -103 78 -103 98 0 12 -3 12 -12 3 -22 -22 -15 -114 11 -150 68 -96 203 -82 380 40 279 193 344 228 428 228 126 0 227 -118 210 -245 -17 -119 -111 -225 -324 -364 -356 -232 -463 -318 -559 -444 -43 -57 -93 -151 -108 -203 -6 -20 -1 -23 61 -35 44 -9 134 -14 253 -14 164 1 198 4 298 28 545 128 951 534 1079 1079 25 102 27 131 27 308 0 177 -2 206 -27 308 -106 452 -411 819 -829 998 -245 105 -540 139 -801 93z m235 -900 c34 -9 55 -28 101 -94 22 -31 55 -53 105 -71 l37 -13 -58 -1 c-64 0 -120 19 -138 47 -9 16 -21 18 -69 15 -71 -5 -121 16 -156 67 -43 64 -36 71 59 65 45 -3 99 -10 119 -15z M603 1810 c-17 -10 -37 -28 -42 -39 -11 -20 -11 -20 31 -1 45 21 98 26 98 11 0 -5 -12 -13 -27 -19 -31 -11 -65 -41 -89 -78 -22 -33 -13 -39 21 -12 33 26 114 49 147 41 40 -10 56 -32 78 -114 40 -148 77 -205 156 -235 73 -28 221 -15 361 30 107 35 203 73 203 80 0 2 -34 12 -76 21 -75 17 -78 16 -113 -3 -57 -31 -177 -71 -235 -78 -107 -13 -177 34 -224 149 -16 40 -37 94 -47 121 -20 55 -65 110 -106 132 -39 20 -98 18 -136 -6z" />
+													</g>
+												</svg>
+											</a>
+										</div>
+										<a href="https://github.com/v-iinh/chrominance" target="_blank" class="font-weight-bold mb-3">
+											<h6 style="text-decoration: underline;">
+												<strong>Chrominance</strong>
+											</h6>
+										</a>
+										<p class="text-muted mb-0"> Chrominance is a Chrome based browser extension, developed with Vanilla JS and The Color API. This tool makes it convenient for designers to identify colors, and find matching palettes for their projects. </p>
+									</div>
+								</div>
 							</div>
 							<!-- Content Block -->
 							<div class="col my-3">
@@ -409,24 +577,6 @@
 											</h6>
 										</a>
 										<p class="text-muted mb-0"> Further demonstrating my working proficiency in web works, BLS Hackclub's site was built by me using JS, CSS, and HTML. We make this in the hopes of inspiring others to learn the courses and use the resources offered by Hackclub. </p>
-									</div>
-								</div>
-							</div>
-							<!-- Content Block -->
-							<div class="col my-3">
-								<div class="card border-hover-primary hover-scale">
-									<div class="card-body">
-										<div>
-											<a href="https://v-iinh.github.io/bls-webdev-site/index.html" target="_blank" style="font-size: 45px; justify-content: center;">
- 												<svg version="1.0" xmlns="http://www.w3.org/2000/svg"  width="60" height="60" viewBox="-5 100 885 861"  preserveAspectRatio="xMidYMid meet"><g transform="translate(0, 861) scale(0.1, -0.1)" fill="#0bceaf" stroke="none" class="s0"><path d="M1710 7058 c-25 -3 -72 -11 -105 -16 -170 -28 -321 -123 -442 -277 -34 -44 -62 -84 -63 -88 0 -4 -14 -35 -30 -69 -17 -33 -30 -70 -30 -83 0 -12 -7 -39 -15 -58 -13 -32 -15 -258 -15 -1830 0 -1573 2 -1799 15 -1830 8 -20 15 -48 15 -61 0 -40 64 -169 124 -250 94 -127 247 -225 421 -269 77 -20 117 -21 981 -24 841 -4 903 -5 918 -21 14 -16 14 -28 -5 -127 -11 -61 -25 -144 -30 -185 -6 -41 -17 -98 -25 -126 -8 -28 -14 -71 -14 -95 0 -24 -7 -62 -15 -84 -8 -22 -14 -54 -15 -71 0 -64 1 -64 -389 -64 -394 0 -398 -1 -449 -68 -23 -31 -27 -45 -27 -106 0 -87 24 -128 92 -157 43 -18 95 -19 1761 -19 1437 0 1724 3 1757 14 61 21 98 73 103 144 5 75 -14 122 -69 161 l-42 31 -362 0 c-338 0 -363 1 -378 18 -10 10 -17 34 -17 53 0 19 -5 52 -11 74 -6 22 -15 73 -20 114 -5 41 -16 97 -24 125 -8 27 -15 64 -15 83 0 18 -4 52 -10 75 -24 109 -40 187 -40 196 0 6 7 18 16 26 14 14 111 16 923 16 877 0 910 1 987 20 128 33 252 100 337 183 81 80 156 193 183 277 9 30 23 72 31 93 11 31 13 361 13 1853 0 1590 -2 1819 -15 1851 -8 19 -15 43 -15 51 0 39 -93 202 -152 267 -147 160 -300 233 -528 251 -99 8 -5258 10 -5310 2z m5367 -364 c43 -9 93 -24 113 -34 48 -24 131 -116 161 -177 l24 -48 0 -1800 0 -1800 -27 -55 c-30 -62 -98 -139 -143 -163 -16 -9 -54 -26 -83 -37 -52 -20 -71 -20 -2747 -20 l-2695 0 -62 21 c-131 45 -216 142 -249 284 -6 24 -8 746 -7 1800 l3 1760 27 57 c61 127 151 192 308 221 14 2 1212 5 2663 6 2370 1 2646 -1 2714 -15z m-2209 -4492 c14 -10 58 -224 68 -334 4 -40 13 -90 21 -112 7 -21 13 -62 13 -91 0 -28 7 -74 15 -101 21 -69 19 -111 -4 -124 -13 -6 -224 -10 -615 -10 -590 0 -595 0 -609 21 -13 18 -13 27 -1 72 8 29 14 72 14 97 0 25 7 63 15 85 8 22 14 60 15 84 0 25 6 72 14 105 8 34 22 108 31 166 9 58 23 115 31 128 l14 22 483 0 c265 0 488 -4 495 -8z M3753 5547 c-21 -7 -165 -144 -443 -423 -405 -405 -412 -412 -417 -457 -12 -105 -25 -88 385 -501 208 -208 399 -396 425 -417 44 -35 54 -39 107 -39 65 0 93 16 141 83 35 48 40 126 12 167 -9 14 -156 168 -325 342 -169 174 -308 322 -308 328 0 16 62 82 300 321 204 204 260 264 323 346 60 79 21 201 -79 244 -50 21 -72 22 -121 6z M4863 5540 c-85 -38 -125 -145 -86 -227 9 -19 152 -173 319 -343 166 -169 305 -317 309 -329 6 -19 -38 -67 -292 -327 -164 -167 -310 -323 -325 -346 -51 -77 -31 -162 51 -225 35 -28 51 -33 94 -33 34 0 62 7 81 19 16 11 206 196 422 412 284 283 397 402 405 427 6 19 9 59 7 89 l-5 55 -409 409 c-247 248 -422 416 -443 425 -44 18 -76 17 -128 -6z"/></g></svg> 
-											</a>
-										</div>
-										<a href="https://v-iinh.github.io/bls-webdev-site/index.html" target="_blank" class="font-weight-bold mb-3">
-											<h6 style="text-decoration: underline;">
-												<strong>BLS Web Design</strong>
-											</h6>
-										</a>
-										<p class="text-muted mb-0"> Boston Latin's official page for Web Design Club. The site displays general information about the club to garner interest and to show the club's capabilities. Making this demonstrated my skillset in full-stack development. </p>
 									</div>
 								</div>
 							</div>
