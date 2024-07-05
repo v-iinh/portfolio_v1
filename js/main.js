@@ -101,9 +101,13 @@ $(document).ready(function () {
     function updateButtonIcon() {
         var iconClass = isMusicPlaying ? "fas fa-pause" : "fas fa-play";
         $(".btn-play i").removeClass().addClass(iconClass).css("color", "#0bceaf");
-
+    
         var marginRight = isMusicPlaying ? "-16px" : "";
-        $(".btn-play span").css("margin-right", marginRight);
+        var marginLeft = isMusicPlaying ? "2.5px" : "";
+        $(".btn-play span").css({
+            "margin-right": marginRight,
+            "margin-left": marginLeft
+        });
     }
 });
 
