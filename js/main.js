@@ -300,8 +300,3 @@ window.addEventListener('load', function() {
         }
     }, 2000);
 });
-
-// Hide Watermark
-$(document).ready(function() {
-    $('[title="Hosted on free web hosting 000webhost.com. Host your own website for FREE."]').hide();
-});
