@@ -194,10 +194,10 @@ function changeProfessionalText() {
 // Education Info
 var educationTexts = [
     {
-        heading: "High School",
-        company: "Boston Latin",
-        date: "2019-2025",
-        details: "Boston Latin is a six-year college preparatory school which provides a rigorous academic program in the classical tradition and fosters the pursuit of excellence."
+        heading: "Bridge to Calculus",
+        company: "Northeastern University",
+        date: "2024-2024",
+        details: "Studied applied mathematics at Northeastern University's Bridge to Calculus program. Covered ethical research methodology, statistics, financial analysis, and automation with Arduino."
     },
     // Add More Objects As Needed
 ];
