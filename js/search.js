@@ -1,6 +1,11 @@
-// Main Search Functionality
-document.addEventListener("DOMContentLoaded", function() {
-    const input = document.getElementById('search');
+// Search Functionality Initialized
+const input = document.getElementById('search');
+document.addEventListener("DOMContentLoaded", function(){
+    timelineSearch();
+})
+
+// Search Filter for Timeline
+function timelineSearch() {
     const events = document.getElementsByClassName('cd-h-timeline__event');
     const dates = document.getElementsByClassName('cd-h-timeline__date');
     const timelineInstance = new HorizontalTimeline(document.querySelector('.js-cd-h-timeline'));
@@ -21,9 +26,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 selectNewDate(timelineInstance, searchResults[currentIndex]);
             }
         }
-    });
+    })
 
-    // Timeline Search
     function selectNewDate(timeline, target) {
         timeline.newDateIndex = Util.getIndexInArray(timeline.date, target);
         timeline.oldDateIndex = Util.getIndexInArray(timeline.date, timeline.selectedDate);
@@ -32,13 +36,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         Util.addClass(timeline.date[timeline.newDateIndex], 'cd-h-timeline__date--selected');
         timeline.selectedDate = timeline.date[timeline.newDateIndex];
-
+    
         updateOlderEvents(timeline);
         updateVisibleContent(timeline);
         updateFilling(timeline);
         scrollToSelectedDate(timeline);
     }
-
+    
     function scrollToSelectedDate(timeline) {
         var selectedDateStyle = window.getComputedStyle(timeline.selectedDate, null);
         var selectedDateLeft = parseFloat(selectedDateStyle.getPropertyValue('left').replace('px', ''));
@@ -47,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
         timeline.translate = Math.min(0, Math.max(-timeline.lineLength + containerWidth, -offset));
         translateTimeline(timeline);
     }
-
+    
     function translateTimeline(timeline) {
         var containerWidth = timeline.datesContainer.offsetWidth;
         timeline.line.style.transform = 'translateX(' + timeline.translate + 'px)';
@@ -64,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
             Util.removeClass(timeline.navigation[1], 'cd-h-timeline__navigation--inactive');
         }
     }
-
+    
     function updateFilling(timeline) {
         var dateStyle = window.getComputedStyle(timeline.selectedDate, null),
             left = dateStyle.getPropertyValue("left"),
@@ -73,13 +77,13 @@ document.addEventListener("DOMContentLoaded", function() {
         left = Number(left.replace('px', '')) + Number(width.replace('px', '')) / 2;
         timeline.fillingLine.style.transform = 'scaleX(' + (left / timeline.lineLength) + ')';
     }
-
+    
     function updateOlderEvents(timeline) {
         for (var i = 0; i < timeline.date.length; i++) {
             (i < timeline.newDateIndex) ? Util.addClass(timeline.date[i], 'cd-h-timeline__date--older-event') : Util.removeClass(timeline.date[i], 'cd-h-timeline__date--older-event');
         }
     }
-
+    
     function updateVisibleContent(timeline) {
         if (timeline.newDateIndex > timeline.oldDateIndex) {
             var classEntering = 'cd-h-timeline__event--selected cd-h-timeline__event--enter-right',
@@ -97,5 +101,5 @@ document.addEventListener("DOMContentLoaded", function() {
             Util.addClass(timeline.content[timeline.oldDateIndex], classLeaving);
             timeline.contentWrapper.style.height = timeline.content[timeline.newDateIndex].offsetHeight + 'px';
         }
-    }
-});
+    }    
+}
