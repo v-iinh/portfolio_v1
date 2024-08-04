@@ -300,3 +300,20 @@ window.addEventListener('load', function() {
         }
     }, 2000);
 });
+
+// Searchbar Toggle
+$('#searchbar-icon').click(function() {
+    $('#search').animate({width: 'toggle'}, function() {
+        $('#search').toggleClass('active');
+    });
+    $("#searchbar-icon").hide();
+    $("#searchbar-cross").show();
+});
+
+$('#searchbar-cross').click(function() {
+    $('#search').animate({width: 'toggle'}, function() {
+        $('#search').toggleClass('active');
+    });
+    $("#searchbar-cross").hide();
+    $("#searchbar-icon").show();
+});
