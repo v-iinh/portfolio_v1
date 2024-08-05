@@ -2,6 +2,7 @@
 const input = document.getElementById('search');
 document.addEventListener("DOMContentLoaded", function(){
     timelineSearch();
+    projectsSearch(); 
 })
 
 // Search Filter for Timeline
@@ -102,4 +103,25 @@ function timelineSearch() {
             timeline.contentWrapper.style.height = timeline.content[timeline.newDateIndex].offsetHeight + 'px';
         }
     }    
+}
+
+// Search Filter for Projects
+function projectsSearch() {
+    input.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const cards = Array.from(document.getElementsByClassName("my-3"));
+            const parentElement = cards[0].parentNode;
+            const query = input.value.toLowerCase();
+            const matchedCards = [];
+
+            for (let i = 0; i < cards.length; i++) {
+                if (cards[i].innerText.toLowerCase().includes(query)) {
+                    matchedCards.push(cards[i]);
+                }
+            }
+            matchedCards.forEach(card => {
+                parentElement.insertBefore(card, parentElement.firstChild);
+            });
+        }
+    });
 }

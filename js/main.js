@@ -44,7 +44,6 @@ $(window).scroll(function () {
     }
 });
 
-
 // Smooth Scrolling on the Navbar Links
 $(".navbar-nav a").on('click', function (event) {
     if (this.hash !== "") {
