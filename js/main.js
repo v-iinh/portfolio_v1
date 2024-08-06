@@ -11,7 +11,7 @@ $(document).ready(function () {
     toggleLoadMoreButton();
     $('.btn-load-more').click(function () {
         var remainingItems = $contentBlocks.length - itemsToShow;
-        $contentBlocks.slice(itemsToShow, itemsToShow + Math.min(3, remainingItems)).toggle();
+        $contentBlocks.slice(itemsToShow, itemsToShow + Math.min(3, remainingItems)).css('display', 'block');
         itemsToShow += 3;
         toggleLoadMoreButton();
         AOS.refresh();
@@ -20,7 +20,7 @@ $(document).ready(function () {
     function toggleLoadMoreButton() {
         if (itemsToShow >= $contentBlocks.length) {
             if ($('.btn-load-more').text() === 'Close All') {
-                $contentBlocks.slice(3).toggle();
+                $contentBlocks.slice(3).css('display', 'none');
                 itemsToShow = 3;
                 $('.btn-load-more').text('Load More');
             } 
@@ -230,24 +230,24 @@ function changeEducationText() {
 }
 
 // Prevent Inspect Element
-document.addEventListener('contextmenu', event => event.preventDefault()); 
-document.onkeydown = function(e) { 
-    if (event.keyCode == 123) { 
-        return false; 
-    } 
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){ 
-        return false; 
-    } 
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){ 
-        return false; 
-    } 
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){ 
-        return false; 
-    } 
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){ 
-        return false; 
-    } 
-};
+// document.addEventListener('contextmenu', event => event.preventDefault()); 
+// document.onkeydown = function(e) { 
+//     if (event.keyCode == 123) { 
+//         return false; 
+//     } 
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){ 
+//         return false; 
+//     } 
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){ 
+//         return false; 
+//     } 
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){ 
+//         return false; 
+//     } 
+//     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){ 
+//         return false; 
+//     } 
+// };
 
 // Initialize Animate on Scroll
 AOS.init();

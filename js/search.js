@@ -113,14 +113,42 @@ function projectsSearch() {
             const parentElement = cards[0].parentNode;
             const query = input.value.toLowerCase();
             const matchedCards = [];
+            const otherCards = [];
+            let initialDisplayCount = 0;
 
-            for (let i = 0; i < cards.length; i++) {
-                if (cards[i].innerText.toLowerCase().includes(query)) {
-                    matchedCards.push(cards[i]);
+            cards.forEach(card => {
+                if (getComputedStyle(card).display === "block") {
+                    initialDisplayCount++;
                 }
+            });
+
+            cards.forEach(card => {
+                if (card.innerText.toLowerCase().includes(query)) {
+                    matchedCards.push(card);
+                } else {
+                    otherCards.push(card);
+                }
+            });
+
+            while (parentElement.firstChild) {
+                parentElement.removeChild(parentElement.firstChild);
             }
+
             matchedCards.forEach(card => {
-                parentElement.insertBefore(card, parentElement.firstChild);
+                parentElement.appendChild(card);
+            });
+
+            otherCards.forEach(card => {
+                parentElement.appendChild(card);
+            });
+
+            const allCards = [...matchedCards, ...otherCards];
+            allCards.forEach((card, index) => {
+                if (index < initialDisplayCount) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
             });
         }
     });
