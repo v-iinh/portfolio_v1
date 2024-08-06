@@ -9,27 +9,30 @@ $(document).ready(function () {
     $contentBlocks.slice(0, itemsToShow).css('display', 'block');
 
     toggleLoadMoreButton();
-    $('.btn-load-more').click(function () {
-        var remainingItems = $contentBlocks.length - itemsToShow;
-        $contentBlocks.slice(itemsToShow, itemsToShow + Math.min(3, remainingItems)).css('display', 'block');
-        itemsToShow += 3;
+    $('#loadMoreBtn').click(function () {
+        var visibleItems = $contentBlocks.filter(':visible').length;
+        var remainingItems = $contentBlocks.length - visibleItems;
+
+        $contentBlocks.slice(visibleItems, visibleItems + Math.min(3, remainingItems)).css('display', 'block').hide().slideDown(400);
+        itemsToShow = visibleItems + 3;
         toggleLoadMoreButton();
         AOS.refresh();
     });
 
     function toggleLoadMoreButton() {
-        if (itemsToShow >= $contentBlocks.length) {
-            if ($('.btn-load-more').text() === 'Close All') {
-                $contentBlocks.slice(3).css('display', 'none');
+        var visibleItems = $contentBlocks.filter(':visible').length;
+        if (visibleItems >= $contentBlocks.length) {
+            if ($('#loadMoreBtn').text() === 'Close All') {
+                $contentBlocks.slice(3).hide();
                 itemsToShow = 3;
-                $('.btn-load-more').text('Load More');
+                $('#loadMoreBtn').text('Load More');
             } 
             else {
-                $('.btn-load-more').text('Close All');
+                $('#loadMoreBtn').text('Close All');
             }
         } 
         else {
-            $('.btn-load-more').text('Load More');
+            $('#loadMoreBtn').text('Load More');
         }
     }
     AOS.init();
@@ -230,24 +233,24 @@ function changeEducationText() {
 }
 
 // Prevent Inspect Element
-// document.addEventListener('contextmenu', event => event.preventDefault()); 
-// document.onkeydown = function(e) { 
-//     if (event.keyCode == 123) { 
-//         return false; 
-//     } 
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){ 
-//         return false; 
-//     } 
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){ 
-//         return false; 
-//     } 
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){ 
-//         return false; 
-//     } 
-//     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){ 
-//         return false; 
-//     } 
-// };
+document.addEventListener('contextmenu', event => event.preventDefault()); 
+document.onkeydown = function(e) { 
+    if (event.keyCode == 123) { 
+        return false; 
+    } 
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){ 
+        return false; 
+    } 
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){ 
+        return false; 
+    } 
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){ 
+        return false; 
+    } 
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){ 
+        return false; 
+    } 
+};
 
 // Initialize Animate on Scroll
 AOS.init();
