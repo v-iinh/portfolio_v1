@@ -103,6 +103,7 @@ a:hover h6 {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 75px;
 }
 #search {
     border: 0;
@@ -112,9 +113,6 @@ a:hover h6 {
     color: #6c757d;
     display: none;
     box-sizing: border-box;
-}
-#search.active {
-    margin-top: -2px;
 }
 .fa-times {
     display: none;
@@ -131,5 +129,6 @@ a:hover h6 {
         display: flex;
         justify-content: left;
         align-items: center;
+        height: 44px;
     }
 }

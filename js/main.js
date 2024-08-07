@@ -148,7 +148,7 @@ $('.back-to-top').click(function () {
 });
 })(jQuery);
 
-// professional Info 
+// Professional Info 
 var professionalTexts = [
     {
         heading: "Computer Science Intern",
@@ -304,18 +304,16 @@ window.addEventListener('load', function() {
 });
 
 // Searchbar Toggle
-$('#searchbar-icon').click(function() {
-    $('#search').animate({width: 'toggle'}, function() {
-        $('#search').toggleClass('active');
+$(document).ready(function(){
+    $('#searchbar-icon').click(function(){
+    $('#search').animate({width: 'toggle'});
+    $("#searchbar-icon").toggle();
+    $("#searchbar-cross").toggle();
     });
-    $("#searchbar-icon").hide();
-    $("#searchbar-cross").show();
-});
-
-$('#searchbar-cross').click(function() {
-    $('#search').animate({width: 'toggle'}, function() {
-        $('#search').toggleClass('active');
+    
+    $('#searchbar-cross').click(function(){
+    $('#search').animate({width: 'toggle'});
+    $("#searchbar-cross").toggle();
+    $("#searchbar-icon").toggle();
     });
-    $("#searchbar-cross").hide();
-    $("#searchbar-icon").show();
 });
