@@ -145,7 +145,7 @@ function projectsSearch() {
             const allCards = [...matchedCards, ...otherCards];
             allCards.forEach((card, index) => {
                 if (index < initialDisplayCount) {
-                    card.style.display = "block";
+                    card.style.display = "";
                 } else {
                     card.style.display = "none";
                 }

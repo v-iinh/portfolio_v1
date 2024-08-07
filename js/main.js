@@ -3,36 +3,36 @@
     
 // Load More Projects 
 $(document).ready(function () {
-    var itemsToShow = 3;
-    var $contentBlocks = $('.row-cols-lg-3 .col'); 
-    $contentBlocks.css('display', 'none');
-    $contentBlocks.slice(0, itemsToShow).css('display', 'block');
+    var $contentBlocks = $('.my-3');
+    var $loadMoreBtn = $('#loadMoreBtn');
+    var initialVisibleCount = 3;
 
+    $contentBlocks.hide().slice(0, initialVisibleCount).show();
     toggleLoadMoreButton();
-    $('#loadMoreBtn').click(function () {
-        var visibleItems = $contentBlocks.filter(':visible').length;
-        var remainingItems = $contentBlocks.length - visibleItems;
 
-        $contentBlocks.slice(visibleItems, visibleItems + Math.min(3, remainingItems)).css('display', 'block').hide().slideDown(400);
-        itemsToShow = visibleItems + 3;
+    $loadMoreBtn.click(function () {
+        var $contentBlocks = $('.my-3');
+        var $hiddenBlocks = $contentBlocks.filter(':hidden');
+        var $nextToShow = $hiddenBlocks.slice(0, initialVisibleCount);
+
+        $nextToShow.each(function() {
+            $(this).hide().slideDown(250);
+        });
         toggleLoadMoreButton();
         AOS.refresh();
     });
 
     function toggleLoadMoreButton() {
+        var $contentBlocks = $('.my-3');
         var visibleItems = $contentBlocks.filter(':visible').length;
+
         if (visibleItems >= $contentBlocks.length) {
-            if ($('#loadMoreBtn').text() === 'Close All') {
-                $contentBlocks.slice(3).hide();
-                itemsToShow = 3;
-                $('#loadMoreBtn').text('Load More');
-            } 
-            else {
-                $('#loadMoreBtn').text('Close All');
+            if ($loadMoreBtn.text() === 'Close All') {
+                $contentBlocks.slice(initialVisibleCount).hide();
+                $loadMoreBtn.text('Load More');
+            } else {
+                $loadMoreBtn.text('Close All');
             }
-        } 
-        else {
-            $('#loadMoreBtn').text('Load More');
         }
     }
     AOS.init();
