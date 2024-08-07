@@ -1,5 +1,6 @@
 // Search Functionality Initialized
 const input = document.getElementById('search');
+let results = 0;
 document.addEventListener("DOMContentLoaded", function(){
     timelineSearch();
     projectsSearch(); 
@@ -26,6 +27,8 @@ function timelineSearch() {
                 currentIndex = (currentIndex + 1) % searchResults.length;
                 selectNewDate(timelineInstance, searchResults[currentIndex]);
             }
+            results = 0;
+            results += searchResults.length;
         }
     })
 
@@ -150,6 +153,24 @@ function projectsSearch() {
                     card.style.display = "none";
                 }
             });
+            results += matchedCards.length;
+            displayResults()
         }
     });
+}
+
+// Display the Results
+function displayResults() {
+    const tempVal = input.value;
+    const resultText = `${results} Result${results === 1 ? '' : 's'}`;
+
+    input.disabled = true;    
+    input.value = "";
+    input.placeholder = resultText;
+    
+    setTimeout(() => {
+        input.value = tempVal;
+        input.placeholder = "";
+        input.disabled = false;
+    }, 1000);
 }
