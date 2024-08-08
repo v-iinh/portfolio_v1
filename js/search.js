@@ -3,6 +3,7 @@ const input = document.getElementById('search');
 let results = 0;
 document.addEventListener("DOMContentLoaded", function(){
     timelineSearch();
+    experienceSearch();
     projectsSearch(); 
 })
 
@@ -108,6 +109,15 @@ function timelineSearch() {
     }    
 }
 
+// Search Filter for Experience
+function experienceSearch(){
+    input.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            
+        }
+    })
+}
+
 // Search Filter for Projects
 function projectsSearch() {
     input.addEventListener('keydown', function(event) {
@@ -172,5 +182,6 @@ function displayResults() {
         input.value = tempVal;
         input.placeholder = "";
         input.disabled = false;
+        input.focus();
     }, 1000);
 }
