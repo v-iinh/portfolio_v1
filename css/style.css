@@ -32,6 +32,7 @@
     box-sizing: border-box;
 }
 html {
+    transition: filter 0.5s ease-in-out;
     font-family: sans-serif;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
@@ -3305,6 +3306,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap;
+    cursor: pointer;
 }
 .navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none;

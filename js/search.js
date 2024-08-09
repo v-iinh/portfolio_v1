@@ -1,6 +1,7 @@
-// Search Functionality Initialized
-const input = document.getElementById('search');
+// Search Initialized
+let input = document.getElementById('search');
 let results = 0;
+
 document.addEventListener("DOMContentLoaded", function(){
     timelineSearch();
     experienceSearch();
@@ -113,7 +114,7 @@ function timelineSearch() {
 function experienceSearch(){
     input.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-            
+
         }
     })
 }

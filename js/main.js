@@ -148,89 +148,35 @@ $('.back-to-top').click(function () {
 });
 })(jQuery);
 
-// Professional Info 
-var professionalTexts = [
-    {
-        heading: "Computer Science Intern",
-        company: "Digital Ready",
-        date: "2023-2023",
-        details: "I was under the guidance of committed mentors during my time at Digital Ready, and built a strong foundation in IT services, Python programming, and UI/UX design."
-    },
-    {
-        heading: "Volunteering Services",
-        company: "Innerview",
-        date: "2021-Present",
-        details: "Granted the ZERO HERO Award, and the National Community Service Honor Award for my various services to the community in the Boston area (<a href='https://innerview.org/vinhtran' target='_blank'>Learn More</a>)."
-    },
-    // Add More As Needed
-];
+// Experience Section
+$(document).ready(function() {
+    let educationIndex = 0;
+    let professionalIndex = 0;
 
-var professionalIndex = 0;
-var originalProfessionalText = document.getElementById("professionalText").innerHTML;
-var originalProfessionalHeading = document.querySelector(".col-lg-6:nth-child(2) .font-weight-bold").innerHTML;
-var originalProfessionalCompany = document.querySelector(".col-lg-6:nth-child(2) .mb-2 strong").innerHTML;
-var originalProfessionalDate = document.querySelector(".col-lg-6:nth-child(2) .mb-2 small").innerHTML;
+    $(".professional_block").hide().slice(0, 1).show();
+    $(".education_block").hide().slice(0, 1).show();
+    AOS.refresh();
 
-function changeProfessionalText() {
-    var professionalTextElement = document.getElementById("professionalText");
-    var professionalHeadingElement = document.querySelector(".col-lg-6:nth-child(2) .font-weight-bold");
-    var professionalCompanyElement = document.querySelector(".col-lg-6:nth-child(2) .mb-2 strong");
-    var professionalDateElement = document.querySelector(".col-lg-6:nth-child(2) .mb-2 small");
-
-    if (professionalIndex === professionalTexts.length) {
-        professionalTextElement.innerHTML = originalProfessionalText;
-        professionalHeadingElement.innerHTML = originalProfessionalHeading;
-        professionalCompanyElement.innerHTML = originalProfessionalCompany;
-        professionalDateElement.innerHTML = originalProfessionalDate;
-        professionalIndex = 0;
-    } else {
-        var textObject = professionalTexts[professionalIndex];
-        professionalTextElement.innerHTML = textObject.details;
-        professionalHeadingElement.innerHTML = textObject.heading;
-        professionalCompanyElement.innerHTML = textObject.company;
-        professionalDateElement.innerHTML = textObject.date;
-        professionalIndex++;
+    function showNextEducationBlock() {
+        $(".education_block").hide();
+        educationIndex = (educationIndex + 1) % $(".education_block").length; 
+        $(".education_block").eq(educationIndex).show();
     }
-}
 
-// Education Info
-var educationTexts = [
-    {
-        heading: "Bridge to Calculus",
-        company: "Northeastern University",
-        date: "2024-2024",
-        details: "Studied applied mathematics at Northeastern University's Bridge to Calculus program. Covered ethical research methodology, statistics, financial analysis, and automation with Arduino."
-    },
-    // Add More Objects As Needed
-];
-
-var educationIndex = 0;
-var originalEducationText = document.getElementById("educationText").innerHTML;
-var originalEducationHeading = document.querySelector(".col-lg-6:nth-child(1) .font-weight-bold").innerHTML;
-var originalEducationCompany = document.querySelector(".col-lg-6:nth-child(1) .mb-2 strong").innerHTML;
-var originalEducationDate = document.querySelector(".col-lg-6:nth-child(1) .mb-2 small").innerHTML;
-
-function changeEducationText() {
-    var educationTextElement = document.getElementById("educationText");
-    var educationHeadingElement = document.querySelector(".col-lg-6:nth-child(1) .font-weight-bold");
-    var educationCompanyElement = document.querySelector(".col-lg-6:nth-child(1) .mb-2 strong");
-    var educationDateElement = document.querySelector(".col-lg-6:nth-child(1) .mb-2 small");
-
-    if (educationIndex === educationTexts.length) {
-        educationTextElement.innerHTML = originalEducationText;
-        educationHeadingElement.innerHTML = originalEducationHeading;
-        educationCompanyElement.innerHTML = originalEducationCompany;
-        educationDateElement.innerHTML = originalEducationDate;
-        educationIndex = 0;
-    } else {
-        var textObject = educationTexts[educationIndex];
-        educationTextElement.innerHTML = textObject.details;
-        educationHeadingElement.innerHTML = textObject.heading;
-        educationCompanyElement.innerHTML = textObject.company;
-        educationDateElement.innerHTML = textObject.date;
-        educationIndex++;
+    function showNextProfessionalBlock() {
+        $(".professional_block").hide(); 
+        professionalIndex = (professionalIndex + 1) % $(".professional_block").length; 
+        $(".professional_block").eq(professionalIndex).show(); 
     }
-}
+
+    $("button[onclick*='changeText'][onclick*='education']").click(function() {
+        showNextEducationBlock();
+    });
+
+    $("button[onclick*='changeText'][onclick*='professional']").click(function() {
+        showNextProfessionalBlock();
+    });
+});
 
 // Prevent Inspect Element
 document.addEventListener('contextmenu', event => event.preventDefault()); 
@@ -317,3 +263,44 @@ $(document).ready(function(){
     $("#searchbar-icon").toggle();
     });
 });
+
+// Change Theme
+function changeTheme(){
+    const html = document.querySelector("html");
+    const media = document.querySelectorAll("img, picture, video");
+    const isFiltered = html.style.filter === "invert(1) hue-rotate(180deg)";
+
+    if (isFiltered) {
+        html.style.filter = "";
+        media.forEach((mediaItem) => {
+            mediaItem.style.filter = "";
+        });
+    } else {
+        html.style.filter = "invert(1) hue-rotate(180deg)";
+        media.forEach((mediaItem) => {
+            mediaItem.style.filter = "invert(1) hue-rotate(180deg)";
+        });
+    }
+}
+
+// Change Theme
+const navbarBrand = document.querySelector('.navbar-brand');
+if (navbarBrand) {
+    navbarBrand.addEventListener('click', function() {
+        const html = document.querySelector("html");
+        const media = document.querySelectorAll("img, picture, video");
+        const isFiltered = html.style.filter === "invert(1) hue-rotate(180deg)";
+
+        if (isFiltered) {
+            html.style.filter = "";
+            media.forEach((mediaItem) => {
+                mediaItem.style.filter = "";
+            });
+        } else {
+            html.style.filter = "invert(1) hue-rotate(180deg)";
+            media.forEach((mediaItem) => {
+                mediaItem.style.filter = "invert(1) hue-rotate(180deg)";
+            });
+        }
+    });
+}

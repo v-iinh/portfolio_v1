@@ -30,7 +30,7 @@
 		</div>
 		<!-- Navbar -->
 		<nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-			<a href="https://vtran.org/" class="navbar-brand ml-lg-3">
+			<a class="navbar-brand ml-lg-3">
 				<h1 class="m-0 display-5">
 					<span class="text-primary">Vinh</span>Tran
 				</h1>
@@ -298,7 +298,8 @@
 				<div class="row align-items-center">
 					<div class="col-lg-6">
 						<h3 class="mb-4">Education</h3>
-						<div class="border-left border-primary pt-2 pl-4 ml-2">
+						<!-- Education Block -->
+						<div class="border-left border-primary pt-2 pl-4 ml-2 education_block">
 							<div class="position-relative mb-4">
 								<i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
 								<h5 class="font-weight-bold mb-1">High School</h5>
@@ -306,14 +307,28 @@
 									<strong>Boston Latin</strong> | <small>2019-2025</small>
 								</p>
 								<p id="educationText"> Boston Latin is a six-year college preparatory school which provides a rigorous academic program in the classical tradition and fosters the pursuit of excellence. </p>
-								<button onclick="changeEducationText()" class="btn btn-outline-primary">Next</button>
+								<button onclick="changeText('education')" class="btn btn-outline-primary">Next</button>
 							</div>
 						</div>
+						<!-- Education Block -->
+						<div class="border-left border-primary pt-2 pl-4 ml-2 education_block">
+							<div class="position-relative mb-4">
+								<i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+								<h5 class="font-weight-bold mb-1">Bridge to Calculus</h5>
+								<p class="mb-2">
+									<strong>Northeastern University</strong> | <small>2024-2024</small>
+								</p>
+								<p id="educationText"> Studied applied mathematics at Northeastern University's Bridge to Calculus program. Covered ethical research methodology, statistics, financial analysis, and automation with Arduino. </p>
+								<button onclick="changeText('education')" class="btn btn-outline-primary">Next</button>
+							</div>
+						</div>
+						<!-- Education Block -->
 					</div>
 					<!-- Professional-->
 					<div class="col-lg-6">
 						<h3 class="mb-4">Professional</h3>
-						<div class="border-left border-primary pt-2 pl-4 ml-2">
+						<!-- Professional Block -->
+						<div class="border-left border-primary pt-2 pl-4 ml-2 professional_block">
 							<div class="position-relative mb-4">
 								<i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
 								<h5 class="font-weight-bold mb-1">Creative Technologies Artist</h5>
@@ -321,9 +336,34 @@
 									<strong>Artists for Humanity</strong> | <small>2023-Present</small>
 								</p>
 								<p id="professionalText"> During my time working at AFH, I collaborated with coworkers on implementing / applying creative technologies for both client and personal projects. </p>
-								<button onclick="changeProfessionalText()" class="btn btn-outline-primary">Next</button>
+								<button onclick="changeText('professional')" class="btn btn-outline-primary">Next</button>
 							</div>
 						</div>
+						<!-- Professional Block -->
+						<div class="border-left border-primary pt-2 pl-4 ml-2 professional_block">
+							<div class="position-relative mb-4">
+								<i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+								<h5 class="font-weight-bold mb-1">Computer Science Intern</h5>
+								<p class="mb-2">
+									<strong>Digital Ready</strong> | <small>2023-2023</small>
+								</p>
+								<p id="professionalText"> I was under the guidance of committed mentors during my time at Digital Ready, and built a strong foundation in IT services, Python programming, and UI/UX design. </p>
+								<button onclick="changeText('professional')" class="btn btn-outline-primary">Next</button>
+							</div>
+						</div>
+						<!-- Professional Block -->
+						<div class="border-left border-primary pt-2 pl-4 ml-2 professional_block">
+							<div class="position-relative mb-4">
+								<i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+								<h5 class="font-weight-bold mb-1">Volunteering Services</h5>
+								<p class="mb-2">
+									<strong>Innerview</strong> | <small>2021-Present</small>
+								</p>
+								<p id="professionalText"> Granted the ZERO HERO Award, and the National Community Service Honor Award for my various services to the community in the Boston area (<a href='https://innerview.org/vinhtran' target='_blank'>Learn More</a>). </p>
+								<button onclick="changeText('professional')" class="btn btn-outline-primary">Next</button>
+							</div>
+						</div>
+						<!-- Professional Block -->
 					</div>
 				</div>
 			</div>
