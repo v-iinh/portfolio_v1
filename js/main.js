@@ -265,25 +265,6 @@ $(document).ready(function(){
 });
 
 // Change Theme
-function changeTheme(){
-    const html = document.querySelector("html");
-    const media = document.querySelectorAll("img, picture, video");
-    const isFiltered = html.style.filter === "invert(1) hue-rotate(180deg)";
-
-    if (isFiltered) {
-        html.style.filter = "";
-        media.forEach((mediaItem) => {
-            mediaItem.style.filter = "";
-        });
-    } else {
-        html.style.filter = "invert(1) hue-rotate(180deg)";
-        media.forEach((mediaItem) => {
-            mediaItem.style.filter = "invert(1) hue-rotate(180deg)";
-        });
-    }
-}
-
-// Change Theme
 const navbarBrand = document.querySelector('.navbar-brand');
 if (navbarBrand) {
     navbarBrand.addEventListener('click', function() {
