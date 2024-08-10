@@ -290,16 +290,18 @@ document.getElementById('invert').addEventListener('click', function() {
     if (currentFilter.includes("invert(1)")) {
         document.documentElement.style.filter = currentFilter.replace("invert(1)", "").trim();
         document.querySelector('.img-fluid').style.borderColor = "white";
-        invertButton.innerHTML = '<i class="fas fa-moon icon"></i> Dark Mode';
+        invertButton.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
     } else {
         document.documentElement.style.filter = currentFilter + " invert(1)";
         document.querySelector('.img-fluid').style.borderColor = "black";
-        invertButton.innerHTML = '<i class="fas fa-sun icon"></i> Light Mode';
+        invertButton.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
     }
     updateFilters();
 });
 
 document.getElementById('hue').addEventListener('mousedown', function() {
+    const hueButton = document.getElementById('hue');
+    hueButton.innerHTML = '<i class="fas fa-computer-mouse"></i> Change Colors';
     if (!intervalId) {
         intervalId = setInterval(() => {
             hueRotation = (hueRotation + 1) % 360;
@@ -309,6 +311,8 @@ document.getElementById('hue').addEventListener('mousedown', function() {
 });
 
 document.addEventListener('mouseup', function() {
+    const hueButton = document.getElementById('hue');
+    hueButton.innerHTML = '<i class="fas fa-paint-brush"></i> Change Colors';
     if (intervalId) {
         clearInterval(intervalId);
         intervalId = null;
