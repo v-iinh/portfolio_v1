@@ -32,7 +32,6 @@
     box-sizing: border-box;
 }
 html {
-    transition: filter 0.5s ease-in-out;
     font-family: sans-serif;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;

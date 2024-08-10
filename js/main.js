@@ -265,23 +265,61 @@ $(document).ready(function(){
 });
 
 // Change Theme
-const navbarBrand = document.querySelector('.navbar-brand');
-if (navbarBrand) {
-    navbarBrand.addEventListener('click', function() {
-        const html = document.querySelector("html");
-        const media = document.querySelectorAll("img, picture, video");
-        const isFiltered = html.style.filter === "invert(1) hue-rotate(180deg)";
+let hueRotation = 0;
+let intervalId;
+let lastRightClickTime = 0;
 
-        if (isFiltered) {
-            html.style.filter = "";
-            media.forEach((mediaItem) => {
-                mediaItem.style.filter = "";
-            });
-        } else {
-            html.style.filter = "invert(1) hue-rotate(180deg)";
-            media.forEach((mediaItem) => {
-                mediaItem.style.filter = "invert(1) hue-rotate(180deg)";
-            });
-        }
+function updateFilters() {
+    const currentFilter = document.documentElement.style.filter;
+    const hasInvert = currentFilter.includes("invert(1)");
+    const filterValue = hasInvert
+        ? `invert(1) hue-rotate(${hueRotation}deg)`
+        : `hue-rotate(${hueRotation}deg)`;
+
+    document.documentElement.style.filter = filterValue;
+    document.querySelectorAll("img, picture, video").forEach((mediaItem) => {
+        const mediaFilterValue = hasInvert
+            ? `invert(1) hue-rotate(${360 - hueRotation}deg)`
+            : `hue-rotate(${360 - hueRotation}deg)`;
+        mediaItem.style.filter = mediaFilterValue;
     });
+}
+
+document.addEventListener('mousedown', function(event) {
+    if (event.button === 2) {
+        const currentTime = new Date().getTime();
+        if (currentTime - lastRightClickTime < 300) {
+            const currentFilter = document.documentElement.style.filter;
+            if (currentFilter.includes("invert(1)")) {
+                document.documentElement.style.filter = currentFilter.replace("invert(1)", "").trim();
+            } else {
+                document.documentElement.style.filter = currentFilter + " invert(1)";
+            }
+            updateFilters(); 
+        }
+        lastRightClickTime = currentTime;
+
+        if (!intervalId) {
+            intervalId = setInterval(() => {
+                hueRotation = (hueRotation + 1) % 360;
+                updateFilters(); 
+            }, 20);
+        }
+    }
+});
+
+document.addEventListener('mouseup', function(event) {
+    if (event.button === 2 && intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+});
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
