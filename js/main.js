@@ -317,6 +317,7 @@ document.addEventListener('mouseup', function() {
         clearInterval(intervalId);
         intervalId = null;
     }
+    hideRightClickMenu()
 });
 
 // Handle Context Menu
