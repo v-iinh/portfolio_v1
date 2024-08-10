@@ -267,8 +267,6 @@ $(document).ready(function(){
 // Change Theme
 let hueRotation = 0;
 let intervalId;
-let lastRightClickTime = 0;
-
 function updateFilters() {
     const currentFilter = document.documentElement.style.filter;
     const hasInvert = currentFilter.includes("invert(1)");
@@ -285,43 +283,57 @@ function updateFilters() {
     });
 }
 
-document.addEventListener('mousedown', function(event) {
-    if (event.button === 2) {
-        const currentTime = new Date().getTime();
-        if (currentTime - lastRightClickTime < 300) {
-            const currentFilter = document.documentElement.style.filter;
-            if (currentFilter.includes("invert(1)")) {
-                document.documentElement.style.filter = currentFilter.replace("invert(1)", "").trim();
-                document.querySelector('.img-fluid').style.borderColor = "white"
-            } else {
-                document.documentElement.style.filter = currentFilter + " invert(1)";
-                document.querySelector('.img-fluid').style.borderColor = "black"
-            }
-            updateFilters(); 
-        }
-        lastRightClickTime = currentTime;
+document.getElementById('invert').addEventListener('click', function() {
+    const invertButton = document.getElementById('invert');
+    const currentFilter = document.documentElement.style.filter;
+    
+    if (currentFilter.includes("invert(1)")) {
+        document.documentElement.style.filter = currentFilter.replace("invert(1)", "").trim();
+        document.querySelector('.img-fluid').style.borderColor = "white";
+        invertButton.innerHTML = '<i class="fas fa-moon icon"></i> Dark Mode';
+    } else {
+        document.documentElement.style.filter = currentFilter + " invert(1)";
+        document.querySelector('.img-fluid').style.borderColor = "black";
+        invertButton.innerHTML = '<i class="fas fa-sun icon"></i> Light Mode';
+    }
+    updateFilters();
+});
 
-        if (!intervalId) {
-            intervalId = setInterval(() => {
-                hueRotation = (hueRotation + 1) % 360;
-                updateFilters(); 
-            }, 20);
-        }
+document.getElementById('hue').addEventListener('mousedown', function() {
+    if (!intervalId) {
+        intervalId = setInterval(() => {
+            hueRotation = (hueRotation + 1) % 360;
+            updateFilters(); 
+        }, 20);
     }
 });
 
-document.addEventListener('mouseup', function(event) {
-    if (event.button === 2 && intervalId) {
+document.addEventListener('mouseup', function() {
+    if (intervalId) {
         clearInterval(intervalId);
         intervalId = null;
     }
 });
 
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+// Handle Context Menu
+document.addEventListener('contextmenu', function(event) {
+    const rightClickDiv = document.getElementById('right_click');
+    const margin = 200;
+    const screenWidth = window.innerWidth;
+
+    if (event.pageX > screenWidth - margin) {
+        rightClickDiv.style.left = `${screenWidth - margin}px`;
+        rightClickDiv.style.top = `${event.pageY}px`;
+        rightClickDiv.style.display = 'block';
+    } else {
+        rightClickDiv.style.left = `${event.pageX}px`;
+        rightClickDiv.style.top = `${event.pageY}px`;
+        rightClickDiv.style.display = 'block';
     }
-    return color;
+});
+
+document.addEventListener('click', hideRightClickMenu);
+document.addEventListener('scroll', hideRightClickMenu);
+function hideRightClickMenu() {
+    document.getElementById('right_click').style.display = 'none';
 }

@@ -132,3 +132,28 @@ a:hover h6 {
         height: 44px;
     }
 }
+#right_click {
+    position: absolute;
+    display: none;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #0bceaf;
+    z-index: 1;
+    width: 200px;
+    cursor: pointer;
+}
+#invert{
+    padding: 0px 5px 5px 5px;
+}
+#hue {
+    border-top: 1px solid #0bceaf;
+    padding: 5px 5px 0px 5px
+}
+#invert:hover, #hue:hover {
+    color: #0bceaf;
+}
+.fa-moon, .fa-paint-brush, .fa-sun{
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+}
