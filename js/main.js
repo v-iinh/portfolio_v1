@@ -292,8 +292,10 @@ document.addEventListener('mousedown', function(event) {
             const currentFilter = document.documentElement.style.filter;
             if (currentFilter.includes("invert(1)")) {
                 document.documentElement.style.filter = currentFilter.replace("invert(1)", "").trim();
+                document.querySelector('.img-fluid').style.borderColor = "white"
             } else {
                 document.documentElement.style.filter = currentFilter + " invert(1)";
+                document.querySelector('.img-fluid').style.borderColor = "black"
             }
             updateFilters(); 
         }
