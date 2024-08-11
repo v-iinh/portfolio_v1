@@ -1,5 +1,47 @@
-// Load More Projects 
 $(document).ready(function() {
+    loadExperiences()
+    loadProjects()
+    musicToggle()
+})
+
+$(document).scroll(function() {
+    scrollNav()
+    scrollBottom()
+    scrollTop()
+})
+
+// Load More Experiences
+function loadExperiences(){
+    let educationIndex = 0;
+    let professionalIndex = 0;
+
+    $(".professional_block").hide().slice(0, 1).show();
+    $(".education_block").hide().slice(0, 1).show();
+    AOS.refresh();
+
+    function showNextEducationBlock() {
+        $(".education_block").hide();
+        educationIndex = (educationIndex + 1) % $(".education_block").length;
+        $(".education_block").eq(educationIndex).show();
+    }
+
+    function showNextProfessionalBlock() {
+        $(".professional_block").hide();
+        professionalIndex = (professionalIndex + 1) % $(".professional_block").length;
+        $(".professional_block").eq(professionalIndex).show();
+    }
+
+    $("button[onclick*='changeText'][onclick*='education']").click(function() {
+        showNextEducationBlock();
+    });
+
+    $("button[onclick*='changeText'][onclick*='professional']").click(function() {
+        showNextProfessionalBlock();
+    });
+}
+
+// Load More Projects 
+function loadProjects(){
     var $contentBlocks = $('.my-3');
     var $loadMoreBtn = $('#loadMoreBtn');
     var initialVisibleCount = 3;
@@ -33,15 +75,71 @@ $(document).ready(function() {
         }
     }
     AOS.init();
-});
+}
+
+// Music Functionality
+function musicToggle(){
+    var $mediaSrc;
+    var isMusicPlaying = false;
+
+    $('.btn-play').click(function() {
+        $mediaSrc = $(this).data("src");
+        toggleBackgroundMusic();
+    });
+
+    function toggleBackgroundMusic() {
+        var media = $("#media")[0];
+        if (isMusicPlaying) {
+            media.pause();
+        } else {
+            media.src = $mediaSrc;
+            media.play();
+        }
+
+        isMusicPlaying = !isMusicPlaying;
+        var musicControl = document.getElementById("musicControl");
+        musicControl.textContent = isMusicPlaying ? "Stop Music" : "Play Music";
+        updateButtonIcon();
+    }
+
+    function updateButtonIcon() {
+        var iconClass = isMusicPlaying ? "fas fa-pause" : "fas fa-play";
+        $(".btn-play i").removeClass().addClass(iconClass).css("color", "#0bceaf");
+    }
+}
 
 // Navbar on Scrolling
-$(window).scroll(function() {
+function scrollNav(){
     if ($(this).scrollTop() > 200) {
         $('.navbar').fadeIn('slow').css('display', 'flex');
     } else {
         $('.navbar').fadeOut('slow').css('display', 'none');
     }
+}
+
+// Scroll to Bottom
+function scrollBottom(){
+    if ($(this).scrollTop() > 100) {
+        $('.scroll-to-bottom').fadeOut('slow');
+    } else {
+        $('.scroll-to-bottom').fadeIn('slow');
+    }
+}
+
+// Back to Top Button
+function scrollTop(){
+    if ($(this).scrollTop() > 200) {
+        $('.back-to-top').fadeIn('slow');
+    } else {
+        $('.back-to-top').fadeOut('slow');
+    }
+}
+
+$('.back-to-top').click(function() {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 1500, 'easeInOutExpo');
+    return false;
 });
 
 // Smooth Scrolling on the Navbar Links
@@ -72,51 +170,12 @@ if ($('.typed-text-output').length == 1) {
     });
 }
 
-// Modal Video
-$(document).ready(function() {
-    var $mediaSrc;
-    var isMusicPlaying = false;
-
-    $('.btn-play').click(function() {
-        $mediaSrc = $(this).data("src");
-        toggleBackgroundMusic();
-    });
-
-    function toggleBackgroundMusic() {
-        var media = $("#media")[0];
-        if (isMusicPlaying) {
-            media.pause();
-        } else {
-            media.src = $mediaSrc;
-            media.play();
-        }
-
-        isMusicPlaying = !isMusicPlaying;
-        var musicControl = document.getElementById("musicControl");
-        musicControl.textContent = isMusicPlaying ? "Stop Music" : "Play Music";
-        updateButtonIcon();
-    }
-
-    function updateButtonIcon() {
-        var iconClass = isMusicPlaying ? "fas fa-pause" : "fas fa-play";
-        $(".btn-play i").removeClass().addClass(iconClass).css("color", "#0bceaf");
-    }
-});
-
-// Scroll to Bottom
-$(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-        $('.scroll-to-bottom').fadeOut('slow');
-    } else {
-        $('.scroll-to-bottom').fadeIn('slow');
-    }
-});
-
 // Portfolio Isotope and Filter
 var portfolioIsotope = $('.portfolio-container').isotope({
     itemSelector: '.portfolio-item',
     layoutMode: 'fitRows'
 });
+
 $('#portfolio-flters li').on('click', function() {
     $("#portfolio-flters li").removeClass('active');
     $(this).addClass('active');
@@ -126,250 +185,8 @@ $('#portfolio-flters li').on('click', function() {
     });
 });
 
-// Back to Top Button
-$(window).scroll(function() {
-    if ($(this).scrollTop() > 200) {
-        $('.back-to-top').fadeIn('slow');
-    } else {
-        $('.back-to-top').fadeOut('slow');
-    }
-});
-$('.back-to-top').click(function() {
-    $('html, body').animate({
-        scrollTop: 0
-    }, 1500, 'easeInOutExpo');
-    return false;
-});
-
-// Experience Section
-$(document).ready(function() {
-    let educationIndex = 0;
-    let professionalIndex = 0;
-
-    $(".professional_block").hide().slice(0, 1).show();
-    $(".education_block").hide().slice(0, 1).show();
-    AOS.refresh();
-
-    function showNextEducationBlock() {
-        $(".education_block").hide();
-        educationIndex = (educationIndex + 1) % $(".education_block").length;
-        $(".education_block").eq(educationIndex).show();
-    }
-
-    function showNextProfessionalBlock() {
-        $(".professional_block").hide();
-        professionalIndex = (professionalIndex + 1) % $(".professional_block").length;
-        $(".professional_block").eq(professionalIndex).show();
-    }
-
-    $("button[onclick*='changeText'][onclick*='education']").click(function() {
-        showNextEducationBlock();
-    });
-
-    $("button[onclick*='changeText'][onclick*='professional']").click(function() {
-        showNextProfessionalBlock();
-    });
-});
-
-// Prevent Inspect Element
-document.addEventListener('contextmenu', event => event.preventDefault());
-document.onkeydown = function(e) {
-    if (event.keyCode == 123) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-        return false;
-    }
-};
-
 // Initialize Animate on Scroll
-AOS.init();
 AOS.init({
     duration: 800,
     delay: 200,
 });
-
-// Loader Screen Visibility
-function onReady(callback) {
-    var bgImage = new Image();
-    bgImage.onload = function() {
-        var intervalId = window.setInterval(function() {
-            if (document.getElementsByTagName('body')[0] !== undefined) {
-                document.body.style.overflow = "";
-                var homeElement = document.getElementById("home");
-                homeElement.style.backgroundImage = "url('./assets/background.gif')";
-                homeElement.style.transition = "background-image 0.5s ease-in-out";
-                window.clearInterval(intervalId);
-                callback.call(this);
-            }
-        }, 1000);
-    };
-    bgImage.src = "./assets/background.gif";
-}
-
-function setVisible(selector, visible) {
-    var element = document.querySelector(selector);
-    if (visible) {
-        element.classList.remove('loader_fade');
-        element.style.display = 'block';
-    } else {
-        element.classList.add('loader_fade');
-    }
-}
-
-onReady(function() {
-    setVisible('.container', true);
-    setVisible('#loader', false);
-});
-
-window.addEventListener('load', function() {
-    var loader = document.getElementById('loader');
-    loader.style.opacity = 0;
-
-    setTimeout(function() {
-        if (loader.style.opacity == 0) {
-            loader.style.display = 'none';
-        }
-    }, 2000);
-});
-
-// Searchbar Toggle
-$(document).ready(function() {
-    $('#searchbar-icon').click(function() {
-        $('#search').animate({
-            width: 'toggle'
-        });
-        $("#searchbar-icon").toggle();
-        $("#searchbar-cross").toggle();
-    });
-
-    $('#searchbar-cross').click(function() {
-        $('#search').animate({
-            width: 'toggle'
-        });
-        $("#searchbar-cross").toggle();
-        $("#searchbar-icon").toggle();
-    });
-});
-
-// Save Palette
-function saveSettings() {
-    const currentFilter = document.documentElement.style.filter;
-    const borderColor = document.querySelector('.img-fluid').style.borderColor;
-    localStorage.setItem('filter', currentFilter);
-    localStorage.setItem('hueRotation', hueRotation);
-    localStorage.setItem('borderColor', borderColor);
-}
-
-function loadSettings() {
-    const savedFilter = localStorage.getItem('filter');
-    const savedHueRotation = localStorage.getItem('hueRotation');
-    const savedBorderColor = localStorage.getItem('borderColor');
-
-    if (savedFilter) {
-        document.documentElement.style.filter = savedFilter;
-    }
-    if (savedHueRotation !== null) {
-        hueRotation = parseFloat(savedHueRotation);
-    }
-    if (savedBorderColor) {
-        document.querySelector('.img-fluid').style.borderColor = savedBorderColor;
-    }
-    updateFilters();
-}
-
-// Change Theme
-let hueRotation = 0;
-let intervalId;
-
-function updateFilters() {
-    const currentFilter = document.documentElement.style.filter;
-    const hasInvert = currentFilter.includes("invert(1)");
-    const filterValue = hasInvert ?
-        `invert(1) hue-rotate(${hueRotation}deg)` :
-        `hue-rotate(${hueRotation}deg)`;
-    document.documentElement.style.filter = filterValue;
-    document.querySelectorAll("img, picture, video").forEach((mediaItem) => {
-        const mediaFilterValue = hasInvert ?
-            `invert(1) hue-rotate(${360 - hueRotation}deg)` :
-            `hue-rotate(${360 - hueRotation}deg)`;
-        mediaItem.style.filter = mediaFilterValue;
-    });
-}
-
-document.getElementById('invert').addEventListener('click', function() {
-    const invertButton = document.getElementById('invert');
-    const currentFilter = document.documentElement.style.filter;
-    const imgElement = document.querySelector('.img-fluid');
-
-    if (currentFilter.includes("invert(1)")) {
-        document.documentElement.style.filter = currentFilter.replace("invert(1)", "").trim();
-        imgElement.style.borderColor = "white";
-        invertButton.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
-    } else {
-        document.documentElement.style.filter = currentFilter + " invert(1)";
-        imgElement.style.borderColor = "black";
-        invertButton.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
-    }
-    updateFilters();
-    saveSettings();
-});
-
-document.getElementById('hue').addEventListener('mousedown', function() {
-    const hueButton = document.getElementById('hue');
-    hueButton.innerHTML = '<i class="fas fa-computer-mouse"></i> Change Colors';
-
-    if (!intervalId) {
-        intervalId = setInterval(() => {
-            hueRotation = (hueRotation + 1) % 360;
-            updateFilters();
-            saveSettings();
-        }, 20);
-    }
-});
-
-document.addEventListener('mouseup', function() {
-    const hueButton = document.getElementById('hue');
-    hueButton.innerHTML = '<i class="fas fa-paint-brush"></i> Change Colors';
-
-    if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-    }
-    saveSettings();
-});
-
-window.addEventListener('load', loadSettings);
-
-// Handle Context Menu
-document.addEventListener('contextmenu', function(event) {
-    const rightClickDiv = document.getElementById('right_click');
-    const margin = 200;
-    const screenWidth = window.innerWidth;
-
-    if (event.pageX > screenWidth - margin) {
-        rightClickDiv.style.left = `${screenWidth - margin}px`;
-        rightClickDiv.style.top = `${event.pageY}px`;
-        rightClickDiv.style.display = 'block';
-    } else {
-        rightClickDiv.style.left = `${event.pageX}px`;
-        rightClickDiv.style.top = `${event.pageY}px`;
-        rightClickDiv.style.display = 'block';
-    }
-});
-
-document.addEventListener('click', hideRightClickMenu);
-document.addEventListener('scroll', hideRightClickMenu);
-
-function hideRightClickMenu() {
-    document.getElementById('right_click').style.display = 'none';
-}

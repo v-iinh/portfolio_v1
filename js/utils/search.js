@@ -8,6 +8,25 @@ document.addEventListener("DOMContentLoaded", function(){
     projectsSearch(); 
 })
 
+// Searchbar Toggle
+$(document).ready(function() {
+    $('#searchbar-icon').click(function() {
+        $('#search').animate({
+            width: 'toggle'
+        });
+        $("#searchbar-icon").toggle();
+        $("#searchbar-cross").toggle();
+    });
+
+    $('#searchbar-cross').click(function() {
+        $('#search').animate({
+            width: 'toggle'
+        });
+        $("#searchbar-cross").toggle();
+        $("#searchbar-icon").toggle();
+    });
+});
+
 // Search Filter for Timeline
 function timelineSearch() {
     const events = document.getElementsByClassName('cd-h-timeline__event');
