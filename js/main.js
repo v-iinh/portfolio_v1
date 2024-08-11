@@ -1,8 +1,5 @@
-(function ($) {
-    "use strict";
-    
 // Load More Projects 
-$(document).ready(function () {
+$(document).ready(function() {
     var $contentBlocks = $('.my-3');
     var $loadMoreBtn = $('#loadMoreBtn');
     var initialVisibleCount = 3;
@@ -10,7 +7,7 @@ $(document).ready(function () {
     $contentBlocks.hide().slice(0, initialVisibleCount).show();
     toggleLoadMoreButton();
 
-    $loadMoreBtn.click(function () {
+    $loadMoreBtn.click(function() {
         var $contentBlocks = $('.my-3');
         var $hiddenBlocks = $contentBlocks.filter(':hidden');
         var $nextToShow = $hiddenBlocks.slice(0, initialVisibleCount);
@@ -39,7 +36,7 @@ $(document).ready(function () {
 });
 
 // Navbar on Scrolling
-$(window).scroll(function () {
+$(window).scroll(function() {
     if ($(this).scrollTop() > 200) {
         $('.navbar').fadeIn('slow').css('display', 'flex');
     } else {
@@ -48,14 +45,14 @@ $(window).scroll(function () {
 });
 
 // Smooth Scrolling on the Navbar Links
-$(".navbar-nav a").on('click', function (event) {
+$(".navbar-nav a").on('click', function(event) {
     if (this.hash !== "") {
         event.preventDefault();
-        
+
         $('html, body').animate({
             scrollTop: $(this.hash).offset().top - 45
         }, 1500, 'easeInOutExpo');
-        
+
         if ($(this).parents('.navbar-nav').length) {
             $('.navbar-nav .active').removeClass('active');
             $(this).closest('a').addClass('active');
@@ -76,11 +73,11 @@ if ($('.typed-text-output').length == 1) {
 }
 
 // Modal Video
-$(document).ready(function () {
+$(document).ready(function() {
     var $mediaSrc;
     var isMusicPlaying = false;
 
-    $('.btn-play').click(function () {
+    $('.btn-play').click(function() {
         $mediaSrc = $(this).data("src");
         toggleBackgroundMusic();
     });
@@ -107,7 +104,7 @@ $(document).ready(function () {
 });
 
 // Scroll to Bottom
-$(window).scroll(function () {
+$(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
         $('.scroll-to-bottom').fadeOut('slow');
     } else {
@@ -115,38 +112,34 @@ $(window).scroll(function () {
     }
 });
 
-// Skills
-$('.skill').waypoint(function () {
-    $('.progress .progress-bar').each(function () {
-        $(this).css("width", $(this).attr("aria-valuenow") + '%');
-    });
-}, {offset: '80%'});
-
 // Portfolio Isotope and Filter
 var portfolioIsotope = $('.portfolio-container').isotope({
     itemSelector: '.portfolio-item',
     layoutMode: 'fitRows'
 });
-$('#portfolio-flters li').on('click', function () {
+$('#portfolio-flters li').on('click', function() {
     $("#portfolio-flters li").removeClass('active');
     $(this).addClass('active');
 
-    portfolioIsotope.isotope({filter: $(this).data('filter')});
+    portfolioIsotope.isotope({
+        filter: $(this).data('filter')
+    });
 });
-    
+
 // Back to Top Button
-$(window).scroll(function () {
+$(window).scroll(function() {
     if ($(this).scrollTop() > 200) {
         $('.back-to-top').fadeIn('slow');
     } else {
         $('.back-to-top').fadeOut('slow');
     }
 });
-$('.back-to-top').click(function () {
-    $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+$('.back-to-top').click(function() {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 1500, 'easeInOutExpo');
     return false;
 });
-})(jQuery);
 
 // Experience Section
 $(document).ready(function() {
@@ -159,14 +152,14 @@ $(document).ready(function() {
 
     function showNextEducationBlock() {
         $(".education_block").hide();
-        educationIndex = (educationIndex + 1) % $(".education_block").length; 
+        educationIndex = (educationIndex + 1) % $(".education_block").length;
         $(".education_block").eq(educationIndex).show();
     }
 
     function showNextProfessionalBlock() {
-        $(".professional_block").hide(); 
-        professionalIndex = (professionalIndex + 1) % $(".professional_block").length; 
-        $(".professional_block").eq(professionalIndex).show(); 
+        $(".professional_block").hide();
+        professionalIndex = (professionalIndex + 1) % $(".professional_block").length;
+        $(".professional_block").eq(professionalIndex).show();
     }
 
     $("button[onclick*='changeText'][onclick*='education']").click(function() {
@@ -179,29 +172,29 @@ $(document).ready(function() {
 });
 
 // Prevent Inspect Element
-document.addEventListener('contextmenu', event => event.preventDefault()); 
-document.onkeydown = function(e) { 
-    if (event.keyCode == 123) { 
-        return false; 
-    } 
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){ 
-        return false; 
-    } 
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){ 
-        return false; 
-    } 
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){ 
-        return false; 
-    } 
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){ 
-        return false; 
-    } 
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.onkeydown = function(e) {
+    if (event.keyCode == 123) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+    }
 };
 
 // Initialize Animate on Scroll
 AOS.init();
 AOS.init({
-    duration: 800, 
+    duration: 800,
     delay: 200,
 });
 
@@ -241,7 +234,7 @@ onReady(function() {
 window.addEventListener('load', function() {
     var loader = document.getElementById('loader');
     loader.style.opacity = 0;
-    
+
     setTimeout(function() {
         if (loader.style.opacity == 0) {
             loader.style.display = 'none';
@@ -250,35 +243,65 @@ window.addEventListener('load', function() {
 });
 
 // Searchbar Toggle
-$(document).ready(function(){
-    $('#searchbar-icon').click(function(){
-    $('#search').animate({width: 'toggle'});
-    $("#searchbar-icon").toggle();
-    $("#searchbar-cross").toggle();
+$(document).ready(function() {
+    $('#searchbar-icon').click(function() {
+        $('#search').animate({
+            width: 'toggle'
+        });
+        $("#searchbar-icon").toggle();
+        $("#searchbar-cross").toggle();
     });
-    
-    $('#searchbar-cross').click(function(){
-    $('#search').animate({width: 'toggle'});
-    $("#searchbar-cross").toggle();
-    $("#searchbar-icon").toggle();
+
+    $('#searchbar-cross').click(function() {
+        $('#search').animate({
+            width: 'toggle'
+        });
+        $("#searchbar-cross").toggle();
+        $("#searchbar-icon").toggle();
     });
 });
+
+// Save Palette
+function saveSettings() {
+    const currentFilter = document.documentElement.style.filter;
+    const borderColor = document.querySelector('.img-fluid').style.borderColor;
+    localStorage.setItem('filter', currentFilter);
+    localStorage.setItem('hueRotation', hueRotation);
+    localStorage.setItem('borderColor', borderColor);
+}
+
+function loadSettings() {
+    const savedFilter = localStorage.getItem('filter');
+    const savedHueRotation = localStorage.getItem('hueRotation');
+    const savedBorderColor = localStorage.getItem('borderColor');
+
+    if (savedFilter) {
+        document.documentElement.style.filter = savedFilter;
+    }
+    if (savedHueRotation !== null) {
+        hueRotation = parseFloat(savedHueRotation);
+    }
+    if (savedBorderColor) {
+        document.querySelector('.img-fluid').style.borderColor = savedBorderColor;
+    }
+    updateFilters();
+}
 
 // Change Theme
 let hueRotation = 0;
 let intervalId;
+
 function updateFilters() {
     const currentFilter = document.documentElement.style.filter;
     const hasInvert = currentFilter.includes("invert(1)");
-    const filterValue = hasInvert
-        ? `invert(1) hue-rotate(${hueRotation}deg)`
-        : `hue-rotate(${hueRotation}deg)`;
-
+    const filterValue = hasInvert ?
+        `invert(1) hue-rotate(${hueRotation}deg)` :
+        `hue-rotate(${hueRotation}deg)`;
     document.documentElement.style.filter = filterValue;
     document.querySelectorAll("img, picture, video").forEach((mediaItem) => {
-        const mediaFilterValue = hasInvert
-            ? `invert(1) hue-rotate(${360 - hueRotation}deg)`
-            : `hue-rotate(${360 - hueRotation}deg)`;
+        const mediaFilterValue = hasInvert ?
+            `invert(1) hue-rotate(${360 - hueRotation}deg)` :
+            `hue-rotate(${360 - hueRotation}deg)`;
         mediaItem.style.filter = mediaFilterValue;
     });
 }
@@ -286,26 +309,30 @@ function updateFilters() {
 document.getElementById('invert').addEventListener('click', function() {
     const invertButton = document.getElementById('invert');
     const currentFilter = document.documentElement.style.filter;
-    
+    const imgElement = document.querySelector('.img-fluid');
+
     if (currentFilter.includes("invert(1)")) {
         document.documentElement.style.filter = currentFilter.replace("invert(1)", "").trim();
-        document.querySelector('.img-fluid').style.borderColor = "white";
+        imgElement.style.borderColor = "white";
         invertButton.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
     } else {
         document.documentElement.style.filter = currentFilter + " invert(1)";
-        document.querySelector('.img-fluid').style.borderColor = "black";
+        imgElement.style.borderColor = "black";
         invertButton.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
     }
     updateFilters();
+    saveSettings();
 });
 
 document.getElementById('hue').addEventListener('mousedown', function() {
     const hueButton = document.getElementById('hue');
     hueButton.innerHTML = '<i class="fas fa-computer-mouse"></i> Change Colors';
+
     if (!intervalId) {
         intervalId = setInterval(() => {
             hueRotation = (hueRotation + 1) % 360;
-            updateFilters(); 
+            updateFilters();
+            saveSettings();
         }, 20);
     }
 });
@@ -313,12 +340,15 @@ document.getElementById('hue').addEventListener('mousedown', function() {
 document.addEventListener('mouseup', function() {
     const hueButton = document.getElementById('hue');
     hueButton.innerHTML = '<i class="fas fa-paint-brush"></i> Change Colors';
+
     if (intervalId) {
         clearInterval(intervalId);
         intervalId = null;
     }
-    hideRightClickMenu()
+    saveSettings();
 });
+
+window.addEventListener('load', loadSettings);
 
 // Handle Context Menu
 document.addEventListener('contextmenu', function(event) {
@@ -339,6 +369,7 @@ document.addEventListener('contextmenu', function(event) {
 
 document.addEventListener('click', hideRightClickMenu);
 document.addEventListener('scroll', hideRightClickMenu);
+
 function hideRightClickMenu() {
     document.getElementById('right_click').style.display = 'none';
 }
