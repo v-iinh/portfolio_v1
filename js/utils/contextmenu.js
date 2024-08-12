@@ -52,13 +52,18 @@ function loadSettings() {
 function updateFilters() {
     const currentFilter = document.documentElement.style.filter;
     const hasInvert = currentFilter.includes("invert(1)");
+
+    const adjustedHueRotation = hasInvert ? (hueRotation + 180) % 360 : hueRotation;
     const filterValue = hasInvert ?
-        `invert(1) hue-rotate(${hueRotation}deg)` :
+        `invert(1) hue-rotate(${adjustedHueRotation}deg)` :
         `hue-rotate(${hueRotation}deg)`;
+
     document.documentElement.style.filter = filterValue;
+
     document.querySelectorAll("img, picture, video").forEach((mediaItem) => {
+        const mediaAdjustedHueRotation = hasInvert ? (360 - hueRotation + 180) % 360 : (360 - hueRotation) % 360;
         const mediaFilterValue = hasInvert ?
-            `invert(1) hue-rotate(${360 - hueRotation}deg)` :
+            `invert(1) hue-rotate(${mediaAdjustedHueRotation}deg)` :
             `hue-rotate(${360 - hueRotation}deg)`;
         mediaItem.style.filter = mediaFilterValue;
     });
