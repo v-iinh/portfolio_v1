@@ -12,8 +12,8 @@ $(document).scroll(function() {
 
 // Load More Experiences
 function loadExperiences() {
-    let educationIndex = 0;
-    let professionalIndex = 0;
+    let educationIndex = $(".education_block").index($(".education_block:visible"));
+    let professionalIndex = $(".professional_block").index($(".professional_block:visible"));
 
     $(".professional_block").hide().slice(0, 1).show();
     $(".education_block").hide().slice(0, 1).show();

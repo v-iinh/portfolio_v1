@@ -143,13 +143,17 @@ function experienceSearch() {
             let professionalVisible = false;
 
             education.forEach((block) => {
+                let idx = 0;
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
                     results += 1
                     block.style.display = "";
-                    block.parentNode.insertBefore(block, education[0]);
+                    block.parentNode.insertBefore(block, education[idx]);
+                    idx++
                     if (firstEducationMatch) {
                         firstEducationMatch = false; 
                     } else {
+                        block.parentNode.insertBefore(block, education[idx]);
+                        idx++
                         block.style.display = "none"; 
                     }
                     educationVisible = true; 
@@ -163,13 +167,17 @@ function experienceSearch() {
             }
 
             professional.forEach((block) => {
+                let idx = 0;
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
                     results += 1
                     block.style.display = "";
-                    block.parentNode.insertBefore(block, professional[0]);
+                    block.parentNode.insertBefore(block, professional[idx]);
+                    idx++
                     if (firstProfessionalMatch) {
                         firstProfessionalMatch = false;
                     } else {
+                        block.parentNode.insertBefore(block, professional[idx]);
+                        idx++
                         block.style.display = "none";
                     }
                     professionalVisible = true; 
