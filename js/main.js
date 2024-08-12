@@ -11,7 +11,7 @@ $(document).scroll(function() {
 })
 
 // Load More Experiences
-function loadExperiences(){
+function loadExperiences() {
     let educationIndex = 0;
     let professionalIndex = 0;
 
@@ -31,11 +31,11 @@ function loadExperiences(){
         $(".professional_block").eq(professionalIndex).show();
     }
 
-    $("button[onclick*='changeText'][onclick*='education']").click(function() {
+    $(".education_block button").click(function() {
         showNextEducationBlock();
     });
 
-    $("button[onclick*='changeText'][onclick*='professional']").click(function() {
+    $(".professional_block button").click(function() {
         showNextProfessionalBlock();
     });
 }

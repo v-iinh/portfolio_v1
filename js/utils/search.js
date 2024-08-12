@@ -130,12 +130,59 @@ function timelineSearch() {
 }
 
 // Search Filter for Experience
-function experienceSearch(){
+function experienceSearch() {
     input.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
+            const education = Array.from(document.getElementsByClassName("education_block"));
+            const professional = Array.from(document.getElementsByClassName("professional_block"));
+            const searchTerm = input.value.toLowerCase();
 
+            let firstEducationMatch = true;
+            let firstProfessionalMatch = true;
+            let educationVisible = false;
+            let professionalVisible = false;
+
+            education.forEach((block) => {
+                if (block.innerText.toLowerCase().includes(searchTerm)) {
+                    results += 1
+                    block.style.display = "";
+                    block.parentNode.insertBefore(block, education[0]);
+                    if (firstEducationMatch) {
+                        firstEducationMatch = false; 
+                    } else {
+                        block.style.display = "none"; 
+                    }
+                    educationVisible = true; 
+                } else {
+                    block.style.display = "none"; 
+                }
+            });
+
+            if (!educationVisible) {
+                education[0].style.display = "";
+            }
+
+            professional.forEach((block) => {
+                if (block.innerText.toLowerCase().includes(searchTerm)) {
+                    results += 1
+                    block.style.display = "";
+                    block.parentNode.insertBefore(block, professional[0]);
+                    if (firstProfessionalMatch) {
+                        firstProfessionalMatch = false;
+                    } else {
+                        block.style.display = "none";
+                    }
+                    professionalVisible = true; 
+                } else {
+                    block.style.display = "none";
+                }
+            });
+
+            if (!professionalVisible) {
+                professional[0].style.display = "";
+            }
         }
-    })
+    });
 }
 
 // Search Filter for Projects
