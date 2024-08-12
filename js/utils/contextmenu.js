@@ -26,15 +26,19 @@ document.onkeydown = function(e) {
 function saveSettings() {
     const currentFilter = document.documentElement.style.filter;
     const borderColor = document.querySelector('.img-fluid').style.borderColor;
+    const modeText = document.getElementById('invert').innerHTML;
+
     localStorage.setItem('filter', currentFilter);
     localStorage.setItem('hueRotation', hueRotation);
     localStorage.setItem('borderColor', borderColor);
+    localStorage.setItem('modeText', modeText);
 }
 
 function loadSettings() {
     const savedFilter = localStorage.getItem('filter');
     const savedHueRotation = localStorage.getItem('hueRotation');
     const savedBorderColor = localStorage.getItem('borderColor');
+    const savedModeText = localStorage.getItem('modeText');
 
     if (savedFilter) {
         document.documentElement.style.filter = savedFilter;
@@ -44,6 +48,9 @@ function loadSettings() {
     }
     if (savedBorderColor) {
         document.querySelector('.img-fluid').style.borderColor = savedBorderColor;
+    }
+    if (savedModeText) {
+        document.getElementById('invert').innerHTML = savedModeText;
     }
     updateFilters();
 }
