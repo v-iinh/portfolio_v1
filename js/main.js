@@ -12,13 +12,15 @@ $(document).scroll(function() {
 
 // Load More Experiences
 function loadExperiences() {
-    let educationIndex = $(".education_block").index($(".education_block:visible"));
-    let professionalIndex = $(".professional_block").index($(".professional_block:visible"));
+    function updateIndexes() {
+        educationIndex = $(".education_block").index($(".education_block:visible"));
+        professionalIndex = $(".professional_block").index($(".professional_block:visible"));
+    }
+    updateIndexes();
 
     $(".professional_block").hide().slice(0, 1).show();
     $(".education_block").hide().slice(0, 1).show();
-    AOS.refresh();
-
+    
     function showNextEducationBlock() {
         $(".education_block").hide();
         educationIndex = (educationIndex + 1) % $(".education_block").length;
@@ -33,10 +35,16 @@ function loadExperiences() {
 
     $(".education_block button").click(function() {
         showNextEducationBlock();
+        updateIndexes(); 
     });
 
     $(".professional_block button").click(function() {
         showNextProfessionalBlock();
+        updateIndexes(); 
+    });
+
+    $(document).on('searchComplete', function() {
+        updateIndexes();
     });
 }
 

@@ -131,64 +131,53 @@ function timelineSearch() {
 
 // Search Filter for Experience
 function experienceSearch() {
+    let educationMatchIndex = -1;
+    let professionalMatchIndex = -1;
+
     input.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             const education = Array.from(document.getElementsByClassName("education_block"));
             const professional = Array.from(document.getElementsByClassName("professional_block"));
             const searchTerm = input.value.toLowerCase();
 
-            let firstEducationMatch = true;
-            let firstProfessionalMatch = true;
-            let educationVisible = false;
-            let professionalVisible = false;
+            let educationMatches = [];
+            let professionalMatches = [];
 
             education.forEach((block) => {
-                let idx = 0;
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
-                    results += 1
-                    block.style.display = "";
-                    block.parentNode.insertBefore(block, education[idx]);
-                    idx++
-                    if (firstEducationMatch) {
-                        firstEducationMatch = false; 
-                    } else {
-                        block.parentNode.insertBefore(block, education[idx]);
-                        idx++
-                        block.style.display = "none"; 
-                    }
-                    educationVisible = true; 
-                } else {
-                    block.style.display = "none"; 
+                    educationMatches.push(block);
                 }
+                block.style.display = "none"; 
             });
-
-            if (!educationVisible) {
-                education[0].style.display = "";
-            }
 
             professional.forEach((block) => {
-                let idx = 0;
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
-                    results += 1
-                    block.style.display = "";
-                    block.parentNode.insertBefore(block, professional[idx]);
-                    idx++
-                    if (firstProfessionalMatch) {
-                        firstProfessionalMatch = false;
-                    } else {
-                        block.parentNode.insertBefore(block, professional[idx]);
-                        idx++
-                        block.style.display = "none";
-                    }
-                    professionalVisible = true; 
-                } else {
-                    block.style.display = "none";
+                    professionalMatches.push(block);
                 }
+                block.style.display = "none"; 
             });
 
-            if (!professionalVisible) {
+            if (educationMatches.length > 0) {
+                educationMatchIndex = (educationMatchIndex + 1) % educationMatches.length;
+                educationMatches.forEach((block, i) => {
+                    block.style.display = (i === educationMatchIndex) ? "" : "none"; 
+                    block.parentNode.insertBefore(block, education[i]); 
+                });
+            } else {
+                education[0].style.display = ""; 
+            }
+
+            if (professionalMatches.length > 0) {
+                professionalMatchIndex = (professionalMatchIndex + 1) % professionalMatches.length;
+                professionalMatches.forEach((block, i) => {
+                    block.style.display = (i === professionalMatchIndex) ? "" : "none"; 
+                    block.parentNode.insertBefore(block, professional[i]); 
+                });
+            } else {
                 professional[0].style.display = "";
             }
+
+            $(document).trigger('searchComplete');
         }
     });
 }
