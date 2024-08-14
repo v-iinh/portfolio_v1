@@ -146,6 +146,7 @@ function experienceSearch() {
             education.forEach((block) => {
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
                     educationMatches.push(block);
+                    results += 1;
                 }
                 block.style.display = "none"; 
             });
@@ -153,6 +154,7 @@ function experienceSearch() {
             professional.forEach((block) => {
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
                     professionalMatches.push(block);
+                    results += 1;
                 }
                 block.style.display = "none"; 
             });
@@ -160,8 +162,7 @@ function experienceSearch() {
             if (educationMatches.length > 0) {
                 educationMatchIndex = (educationMatchIndex + 1) % educationMatches.length;
                 educationMatches.forEach((block, i) => {
-                    block.style.display = (i === educationMatchIndex) ? "" : "none"; 
-                    block.parentNode.insertBefore(block, education[i]); 
+                    block.style.display = (i === educationMatchIndex) ? "" : "none";  
                 });
             } else {
                 education[0].style.display = ""; 
@@ -171,13 +172,10 @@ function experienceSearch() {
                 professionalMatchIndex = (professionalMatchIndex + 1) % professionalMatches.length;
                 professionalMatches.forEach((block, i) => {
                     block.style.display = (i === professionalMatchIndex) ? "" : "none"; 
-                    block.parentNode.insertBefore(block, professional[i]); 
                 });
             } else {
                 professional[0].style.display = "";
             }
-
-            $(document).trigger('searchComplete');
         }
     });
 }

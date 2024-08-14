@@ -12,39 +12,34 @@ $(document).scroll(function() {
 
 // Load More Experiences
 function loadExperiences() {
-    function updateIndexes() {
-        educationIndex = $(".education_block").index($(".education_block:visible"));
-        professionalIndex = $(".professional_block").index($(".professional_block:visible"));
-    }
-    updateIndexes();
-
-    $(".professional_block").hide().slice(0, 1).show();
-    $(".education_block").hide().slice(0, 1).show();
+    let educationIndex = 0;
+    let professionalIndex = 0;
+    
+    $(".education_block").hide().eq(educationIndex).show();
+    $(".professional_block").hide().eq(professionalIndex).show();
     
     function showNextEducationBlock() {
-        $(".education_block").hide();
-        educationIndex = (educationIndex + 1) % $(".education_block").length;
-        $(".education_block").eq(educationIndex).show();
+        const blocks = $(".education_block");
+        const visibleIndex = blocks.index(blocks.filter(":visible"));
+        blocks.hide();
+        educationIndex = (visibleIndex + 1) % blocks.length;
+        blocks.eq(educationIndex).show();
     }
 
     function showNextProfessionalBlock() {
-        $(".professional_block").hide();
-        professionalIndex = (professionalIndex + 1) % $(".professional_block").length;
-        $(".professional_block").eq(professionalIndex).show();
+        const blocks = $(".professional_block");
+        const visibleIndex = blocks.index(blocks.filter(":visible"));
+        blocks.hide();
+        professionalIndex = (visibleIndex + 1) % blocks.length;
+        blocks.eq(professionalIndex).show();
     }
 
     $(".education_block button").click(function() {
         showNextEducationBlock();
-        updateIndexes(); 
     });
 
     $(".professional_block button").click(function() {
         showNextProfessionalBlock();
-        updateIndexes(); 
-    });
-
-    $(document).on('searchComplete', function() {
-        updateIndexes();
     });
 }
 
