@@ -193,3 +193,11 @@ AOS.init({
     duration: 800,
     delay: 200,
 });
+
+// Parallax Tilt for Project Cards
+VanillaTilt.init(document.querySelectorAll(".border-hover-primary"), {
+    max: 25,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.5,
+});
