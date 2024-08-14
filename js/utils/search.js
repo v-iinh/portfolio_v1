@@ -133,6 +133,8 @@ function timelineSearch() {
 function experienceSearch() {
     let educationMatchIndex = -1;
     let professionalMatchIndex = -1;
+    let currentVisibleEducation = null;
+    let currentVisibleProfessional = null;
 
     input.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
@@ -146,7 +148,9 @@ function experienceSearch() {
             education.forEach((block) => {
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
                     educationMatches.push(block);
-                    results += 1;
+                }
+                if (block.style.display !== "none") {
+                    currentVisibleEducation = block;
                 }
                 block.style.display = "none"; 
             });
@@ -154,7 +158,9 @@ function experienceSearch() {
             professional.forEach((block) => {
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
                     professionalMatches.push(block);
-                    results += 1;
+                }
+                if (block.style.display !== "none") {
+                    currentVisibleProfessional = block;
                 }
                 block.style.display = "none"; 
             });
@@ -165,7 +171,9 @@ function experienceSearch() {
                     block.style.display = (i === educationMatchIndex) ? "" : "none";  
                 });
             } else {
-                education[0].style.display = ""; 
+                if (currentVisibleEducation) {
+                    currentVisibleEducation.style.display = "";
+                }
             }
 
             if (professionalMatches.length > 0) {
@@ -174,7 +182,9 @@ function experienceSearch() {
                     block.style.display = (i === professionalMatchIndex) ? "" : "none"; 
                 });
             } else {
-                professional[0].style.display = "";
+                if (currentVisibleProfessional) {
+                    currentVisibleProfessional.style.display = "";
+                }
             }
         }
     });
