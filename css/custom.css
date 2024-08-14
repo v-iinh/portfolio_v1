@@ -107,7 +107,8 @@ a:hover h6 {
 }
 #search {
     border: 0;
-    border-bottom: 2px solid black; 
+    border-bottom: 2px solid black;
+    border-radius: 0px;
     font-size: 1rem;
     outline: none;
     color: #6c757d;
@@ -156,4 +157,28 @@ a:hover h6 {
     width: 20px;
     display: inline-block;
     text-align: center;
+}
+.inner-cursor {
+    position: fixed;
+    width: 7px;
+    height: 7px;
+    transform: translate(-50%, -50%);
+    background-color: #111;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: width 0.05s, height 0.05s;
+    z-index: 1200;
+    display: none;
+}
+.outer-cursor {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    border: 1px solid #111;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: 0.05s;
+    z-index: 1200;
+    display: none;
 }

@@ -147,6 +147,7 @@ function experienceSearch() {
 
             education.forEach((block) => {
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
+                    results += 1
                     educationMatches.push(block);
                 }
                 if (block.style.display !== "none") {
@@ -157,6 +158,7 @@ function experienceSearch() {
 
             professional.forEach((block) => {
                 if (block.innerText.toLowerCase().includes(searchTerm)) {
+                    results += 1
                     professionalMatches.push(block);
                 }
                 if (block.style.display !== "none") {

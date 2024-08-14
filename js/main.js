@@ -2,6 +2,7 @@ $(document).ready(function() {
     loadExperiences()
     loadProjects()
     musicToggle()
+    customCursor()
 })
 
 $(document).scroll(function() {
@@ -108,6 +109,39 @@ function musicToggle(){
     function updateButtonIcon() {
         var iconClass = isMusicPlaying ? "fas fa-pause" : "fas fa-play";
         $(".btn-play i").removeClass().addClass(iconClass).css("color", "#0bceaf");
+    }
+}
+
+// Custom Cursor Animation
+function customCursor(){
+    let innerCursor = document.querySelector(".inner-cursor");
+    let outerCursor = document.querySelector(".outer-cursor");
+
+    document.addEventListener("mousemove", moveCursor);
+    document.addEventListener("mousedown", cursorFill);
+    document.addEventListener("mouseup", cursorReset);
+
+    function moveCursor(e) {
+        innerCursor.style.display = "block";
+        outerCursor.style.display = "block";
+
+        let x = e.clientX; 
+        let y = e.clientY; 
+
+        innerCursor.style.left = `${x}px`;
+        innerCursor.style.top = `${y}px`;
+        outerCursor.style.left = `${x}px`;
+        outerCursor.style.top = `${y}px`;
+    }
+
+    function cursorFill(){
+        innerCursor.style.width = "10px";
+        innerCursor.style.height = "10px";
+    }
+
+    function cursorReset(){
+        innerCursor.style.width = "7px";
+        innerCursor.style.height = "7px";
     }
 }
 
