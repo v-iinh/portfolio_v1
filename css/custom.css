@@ -158,9 +158,7 @@ a:hover h6 {
     display: inline-block;
     text-align: center;
 }
-.border-hover-primary {
-    transition: border-color 0.3s ease;
-}
 .border-hover-primary:hover {
     border-color: #0bceaf !important;
+    transition: border-color 0.3s ease;
 }
