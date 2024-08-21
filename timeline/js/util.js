@@ -1,3 +1,21 @@
+function updateTimeline(){
+  const dateElements = document.getElementsByClassName("cd-h-timeline__date");
+
+  Array.from(dateElements).forEach((el, index) => {
+    const year = "01";
+    const month = "01";
+    const day = (index + 1).toString().padStart(2, '0');
+    const dateValue = `${month}/${day}/${year}`;
+    el.setAttribute('data-date', dateValue);
+  });
+
+  if (dateElements.length > 0) {
+    dateElements[dateElements.length - 1].classList.add("cd-h-timeline__date--selected");
+  }
+}
+updateTimeline()
+
+
 // Utility Function
 function Util () {};
 
