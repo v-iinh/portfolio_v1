@@ -3,7 +3,6 @@ let intervalId;
 
 // Prevent Inspect Element
 document.addEventListener('contextmenu', event => event.preventDefault());
-
 document.onkeydown = function(e) {
     if (event.keyCode == 123) {
         return false;
@@ -68,12 +67,14 @@ function updateFilters() {
     document.documentElement.style.filter = filterValue;
 
     document.querySelectorAll("img, picture, video").forEach((mediaItem) => {
-        const mediaAdjustedHueRotation = hasInvert ? (360 - hueRotation + 180) % 360 : (360 - hueRotation) % 360;
-        const mediaFilterValue = hasInvert ?
-            `invert(1) hue-rotate(${mediaAdjustedHueRotation}deg)` :
-            `hue-rotate(${360 - hueRotation}deg)`;
-        mediaItem.style.filter = mediaFilterValue;
-    });
+        if (!mediaItem.closest('.projectPicture')) {
+            const mediaAdjustedHueRotation = hasInvert ? (360 - hueRotation + 180) % 360 : (360 - hueRotation) % 360;
+            const mediaFilterValue = hasInvert ? 
+                `invert(1) hue-rotate(${mediaAdjustedHueRotation}deg)` :
+                `hue-rotate(${360 - hueRotation}deg)`;
+            mediaItem.style.filter = mediaFilterValue;
+        }
+    });    
 }
 
 document.getElementById('invert').addEventListener('click', function() {
@@ -136,9 +137,15 @@ document.addEventListener('contextmenu', function(event) {
 });
 
 document.addEventListener('click', hideRightClickMenu);
-
 document.addEventListener('scroll', hideRightClickMenu);
 
-function hideRightClickMenu() {
-    document.getElementById('right_click').style.display = 'none';
+function hideRightClickMenu(event) {
+    const rightClickDiv = document.getElementById('right_click');
+    const hueButton = document.getElementById('hue');
+    
+    if (event.target === hueButton) {
+        return;
+    }
+
+    rightClickDiv.style.display = 'none';
 }

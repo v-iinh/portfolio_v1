@@ -53,6 +53,7 @@ function loadProjects(){
     toggleLoadMoreButton();
 
     $loadMoreBtn.click(function() {
+        close_folder();
         var $contentBlocks = $('.my-3');
         var $hiddenBlocks = $contentBlocks.filter(':hidden');
         var $nextToShow = $hiddenBlocks.slice(0, initialVisibleCount);
@@ -138,6 +139,16 @@ function scrollTop(){
     }
 }
 
+function close_folder(){
+    var currentPanel = $(this).next('.panel-collapse');
+    var otherPanels = $('#accordion .panel-collapse').not(currentPanel);
+
+    if (!currentPanel.hasClass('in')) {
+        currentPanel.collapse('show');
+        otherPanels.collapse('hide');
+    }
+}
+
 $('.back-to-top').click(function() {
     $('html, body').animate({
         scrollTop: 0
@@ -159,6 +170,11 @@ $(".navbar-nav a").on('click', function(event) {
             $(this).closest('a').addClass('active');
         }
     }
+});
+
+// Collapse Behavior
+$('#accordion .panel-heading').on('click', function() {
+    close_folder();
 });
 
 // Typed Initiate

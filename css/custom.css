@@ -1,14 +1,13 @@
 ::-webkit-scrollbar {
     width: 0px;
 }
-a:hover h6 {
-    color: #0bceaf;
+a:hover{
+    text-decoration: none;
 }
-.s0 {
-    fill: #0bceaf;
-}
-.s0:hover {
-    fill: #078571;
+.projectPicture img{
+    height: 40px; 
+    width: auto; 
+    margin: 15px 0px;
 }
 @keyframes slideRight {
     0% {
@@ -158,7 +157,26 @@ a:hover h6 {
     display: inline-block;
     text-align: center;
 }
-.border-hover-primary:hover {
-    border-color: #0bceaf !important;
-    transition: border-color 0.3s ease;
+.panel-heading {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-right: none;
+    border-left: none;
+    display: flex;
+    height: 40px;
+    cursor: pointer;
+}
+.panel-heading:hover .panel-title {
+    color: #0bceaf;
+}
+.panel-title>strong{
+    display:flex;
+    padding: 10px;
+    text-decoration:none;
+    cursor: pointer;
+}
+.panel-body{
+    padding: 10px 0px;
+    max-height: 100px;
+    overflow: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }

@@ -210,7 +210,7 @@ function projectsSearch() {
             });
 
             cards.forEach(card => {
-                if (card.innerText.toLowerCase().includes(query)) {
+                if (card.innerHTML.toLowerCase().includes(query)) {
                     matchedCards.push(card);
                 } else {
                     otherCards.push(card);
