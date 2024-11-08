@@ -139,13 +139,16 @@ function scrollTop(){
     }
 }
 
-function close_folder(){
+function close_folder() {
     var currentPanel = $(this).next('.panel-collapse');
     var otherPanels = $('#accordion .panel-collapse').not(currentPanel);
 
     if (!currentPanel.hasClass('in')) {
         currentPanel.collapse('show');
-        otherPanels.collapse('hide');
+        
+        setTimeout(function() {
+            otherPanels.collapse('hide');
+        }, 300);
     }
 }
 

@@ -7,14 +7,14 @@ function onReady(callback) {
             if (document.getElementsByTagName('body')[0] !== undefined) {
                 document.body.style.overflow = "";
                 var homeElement = document.getElementById("home");
-                homeElement.style.backgroundImage = "url('./assets/background.gif')";
+                homeElement.style.backgroundImage = "url('./assets/media/background.gif')";
                 homeElement.style.transition = "background-image 0.5s ease-in-out";
                 window.clearInterval(intervalId);
                 callback.call(this);
             }
         }, 1000);
     };
-    bgImage.src = "./assets/background.gif";
+    bgImage.src = "./assets/media/background.gif";
 }
 
 function setVisible(selector, visible) {

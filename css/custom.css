@@ -175,8 +175,9 @@ a:hover{
     cursor: pointer;
 }
 .panel-body{
-    padding: 10px 0px;
+    padding: 10px;
     max-height: 100px;
     overflow: auto;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    text-align: left;
 }
