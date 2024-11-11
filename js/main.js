@@ -144,9 +144,9 @@ function close_folder() {
 }
 
 function toggleEyeIcon(panel) {
-    $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
     var eyeIcon = $(panel).find('#eye-icon');
     if (eyeIcon.hasClass('fa-eye')) {
+        $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
         eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
     } else {
         eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
