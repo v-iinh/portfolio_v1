@@ -159,6 +159,7 @@ a:hover{
 }
 .panel-heading {
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
     border-right: none;
     border-left: none;
     display: flex;
@@ -174,10 +175,28 @@ a:hover{
     text-decoration:none;
     cursor: pointer;
 }
+.panel-title{
+    display: flex; 
+    justify-content: space-between; 
+    width: 100%; 
+    margin: 0;
+}
 .panel-body{
     padding: 10px;
     max-height: 100px;
     overflow: auto;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     text-align: left;
+}
+.panel-media{
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+#eye-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
