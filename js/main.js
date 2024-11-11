@@ -134,22 +134,17 @@ function scrollBottom(){
 function close_folder() {
     var currentPanel = $(this).next('.panel-collapse');
     var otherPanels = $('#accordion .panel-collapse').not(currentPanel);
-    var eyeIcon = $(this).find('#eye-icon');
 
     if (!currentPanel.hasClass('in')) {
         currentPanel.collapse('show');
-
         setTimeout(function() {
             otherPanels.collapse('hide');
-            eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
-            // $('#accordion .panel-heading #eye-icon').removeClass('fa-eye-slash').addClass('fa-eye');
         }, 300);
-    } else {
-        eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
     }
 }
 
 function toggleEyeIcon(panel) {
+    $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
     var eyeIcon = $(panel).find('#eye-icon');
     if (eyeIcon.hasClass('fa-eye')) {
         eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
