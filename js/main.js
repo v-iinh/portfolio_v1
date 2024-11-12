@@ -53,7 +53,11 @@ function loadProjects(){
     toggleLoadMoreButton();
 
     $loadMoreBtn.click(function() {
-        close_folder();
+        toggleProjects()
+        setTimeout(() => {
+            $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
+        }, 300);
+
         var $contentBlocks = $('.my-3');
         var $hiddenBlocks = $contentBlocks.filter(':hidden');
         var $nextToShow = $hiddenBlocks.slice(0, initialVisibleCount);
@@ -79,6 +83,26 @@ function loadProjects(){
         }
     }
     AOS.init();
+}
+
+// Projects Icon and Closing Functionality
+function toggleProjects(panel) {
+    var eyeIcon = $(panel).find('#eye-icon');
+    if (eyeIcon.hasClass('fa-eye')) {
+        $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
+        eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
+    } else {
+        eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
+    }
+
+    var currentPanel = $(this).next('.panel-collapse');
+    var otherPanels = $('#accordion .panel-collapse').not(currentPanel);
+    if (!currentPanel.hasClass('in')) {
+        currentPanel.collapse('show');
+        setTimeout(function() {
+            otherPanels.collapse('hide');
+        }, 300);
+    }
 }
 
 // Music Functionality
@@ -129,33 +153,6 @@ function scrollBottom(){
         $('.scroll-to-bottom').fadeIn('slow');
     }
 }
-
-// Collapse Behavior
-function close_folder() {
-    var currentPanel = $(this).next('.panel-collapse');
-    var otherPanels = $('#accordion .panel-collapse').not(currentPanel);
-
-    if (!currentPanel.hasClass('in')) {
-        currentPanel.collapse('show');
-        setTimeout(function() {
-            otherPanels.collapse('hide');
-        }, 300);
-    }
-}
-
-function toggleEyeIcon(panel) {
-    var eyeIcon = $(panel).find('#eye-icon');
-    if (eyeIcon.hasClass('fa-eye')) {
-        $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
-        eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
-    } else {
-        eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
-    }
-}
-
-$('#accordion .panel-heading').on('click', function() {
-    close_folder();
-});
 
 // Back to Top Button
 function scrollTop(){
