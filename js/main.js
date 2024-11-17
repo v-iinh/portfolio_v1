@@ -89,8 +89,10 @@ function loadProjects(){
 function toggleProjects(panel) {
     var eyeIcon = $(panel).find('#eye-icon');
     if (eyeIcon.hasClass('fa-eye')) {
-        $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
-        eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
+        setTimeout(() => {
+            $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
+            eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
+        }, 300);
     } else {
         eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
     }
