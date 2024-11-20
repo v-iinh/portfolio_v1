@@ -164,7 +164,7 @@ a:hover{
     border-left: none;
     display: flex;
     height: 40px;
-    cursor: pointer;
+    cursor: not-allowed;
 }
 .panel-heading:hover .panel-title {
     color: #0bceaf;
@@ -173,7 +173,7 @@ a:hover{
     display:flex;
     padding: 10px;
     text-decoration:none;
-    cursor: pointer;
+    cursor: not-allowed;
 }
 .panel-title{
     display: flex; 
