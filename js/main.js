@@ -53,7 +53,6 @@ function loadProjects(){
     toggleLoadMoreButton();
 
     $loadMoreBtn.click(function() {
-        // toggleProjects()
         setTimeout(() => {
             $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
         }, 300);
@@ -84,28 +83,6 @@ function loadProjects(){
     }
     AOS.init();
 }
-
-// Projects Icon and Closing Functionality
-// function toggleProjects(panel) {
-//     var eyeIcon = $(panel).find('#eye-icon');
-//     if (eyeIcon.hasClass('fa-eye')) {
-//         setTimeout(() => {
-//             $('.fa-eye-slash').removeClass('fa-eye-slash').addClass('fa-eye');
-//             eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash');
-//         }, 300);
-//     } else {
-//         eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye');
-//     }
-
-//     var currentPanel = $(this).next('.panel-collapse');
-//     var otherPanels = $('#accordion .panel-collapse').not(currentPanel);
-//     if (!currentPanel.hasClass('in')) {
-//         currentPanel.collapse('show');
-//         setTimeout(function() {
-//             otherPanels.collapse('hide');
-//         }, 300);
-//     }
-// }
 
 // Music Functionality
 function musicToggle(){
